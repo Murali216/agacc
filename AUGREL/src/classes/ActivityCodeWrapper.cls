@@ -1,5 +1,5 @@
 global class ActivityCodeWrapper implements Comparable {
-	// Comment Made for GIT POC
+	// Comment Made for GIT public
 
 	public Activity_Code__c activityCode;
     public String flagType;
