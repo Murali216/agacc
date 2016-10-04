@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Starts the Process Approval Process For Start Process Approvals</description>
+    <label>Start Process Approval Process For Start Process</label>
+    <processType>Workflow</processType>
+</Flow>

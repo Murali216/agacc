@@ -1,0 +1,47 @@
+<apex:page controller="TFSC_InteractionEntryPanelController" id="interactEntPan">
+
+<script type="text/javascript">
+        function setFocusOnLoad() {}
+        var $j = jQuery.noConflict();
+ 
+         function refreshPrimaryTab() {
+
+            sforce.console.getFocusedPrimaryTabId(refreshPrimarytab);
+
+        }
+        var refreshPrimarytab = function refreshPrimarytab(result){
+
+            var primaryTabId = result.id;
+    
+            console.log(result);
+    
+            sforce.console.refreshPrimaryTabById(primaryTabId, true, refreshSuccess );         
+
+        }
+        var refreshSuccess = function refreshSuccess(result) {
+    
+            console.log(result);
+    
+            if (result.success == true) {
+    
+                console.log('Primarytab refreshed successfully');
+    
+            } else {
+    
+                console.log('Primarytab did not refresh');
+    
+            }
+    
+        };
+       
+    </script>       
+        
+ <apex:tabPanel >
+ 
+ <apex:tab label="C&D" name="candd-top-tabname" id="candd-top-tabid" styleClass="topTabClass">
+            <div class="canddClass">
+                <apex:iframe rendered="true" scrolling="true" src="/flow/UC_Cease_Desist?FlowInputAccountId={!financialAccount.Financial_Account_Number__c}" width="100%" height="800px" id="c-and-d-iframe" />
+            </div>
+       </apex:tab>
+ </apex:tabPanel>
+</apex:page>

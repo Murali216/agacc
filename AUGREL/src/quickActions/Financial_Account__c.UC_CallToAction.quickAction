@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Call to Action publisher.</description>
+    <height>350</height>
+    <icon>PublisherCallToAction</icon>
+    <label>Call to Action</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>UC_NewActivityCallToAction</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Lease_Cure_Required_State__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SRC: TFS AB6 Requirement 
+INT: NA
+Trans: Manual Cure workflow 
+BU: Collections 
+FD: Flag showing if CURE is required for Lease record type of Financial account.</description>
+        <externalId>false</externalId>
+        <label>Lease - Cure Required State</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lease_FOPP_Minimum_Days_Delinquent__c</fullName>
+        <description>SRC: TFS AB6 Requirement 
+INT: NA
+Trans: Manual Cure workflow 
+BU: Collections 
+FD: Lease FOPP Minimum days to be used in Manual Cure workflow</description>
+        <externalId>false</externalId>
+        <label>Lease-FOPP Minimum Days Delinquent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Form__c</fullName>
+        <description>SRC: TFS AB6 Requirement 
+INT: NA
+Trans: Manual Cure workflow 
+BU: Collections 
+FD: Lease Form Number to be used in Manual Cure workflow</description>
+        <externalId>false</externalId>
+        <label>Lease Form #</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Cure_Required_State__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SRC: TFS AB6 Requirement 
+INT: NA
+Trans: Manual Cure workflow 
+BU: Collections 
+FD: Retail Cure Required Flag to be used in Manual Cure workflow</description>
+        <externalId>false</externalId>
+        <label>Retail - Cure Required State</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retail_FOPP_Minimum_Days_Delinquent__c</fullName>
+        <description>SRC: TFS AB6 Requirement 
+INT: NA
+Trans: Manual Cure workflow 
+BU: Collections 
+FD: Retail FOPP Minimum Days to be used in Manual Cure workflow</description>
+        <externalId>false</externalId>
+        <label>Retail-FOPP Minimum Days Delinquent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Form__c</fullName>
+        <description>SRC: TFS AB6 Requirement 
+INT: NA
+Trans: Manual Cure workflow 
+BU: Collections 
+FD: Retail Form Number to be used in manual Cure workflow</description>
+        <externalId>false</externalId>
+        <label>Retail Form #</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Manual Cure State Threshold</label>
+    <visibility>Protected</visibility>
+</CustomObject>

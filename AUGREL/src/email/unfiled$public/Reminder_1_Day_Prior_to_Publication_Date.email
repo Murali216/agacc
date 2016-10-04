@@ -1,0 +1,4 @@
+Following Case's publication date is {!Case.KM_Publication_Date__c}. 
+Case Number: {!Case.CaseNumber}
+Case Subject: {!Case.Subject}
+Case Link: {!Case.Link}

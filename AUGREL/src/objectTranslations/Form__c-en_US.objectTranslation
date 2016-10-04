@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Form</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms</value>
+    </caseValues>
+    <fields>
+        <help><!-- If checked then a separate form is generated for each active FAC with that FAC&apos;s information --></help>
+        <label><!-- Copy per FAC --></label>
+        <name>Copy_per_FAC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Document Request Record Type --></label>
+        <name>Document_Request_Record_Type__c</name>
+        <picklistValues>
+            <masterLabel>Notice of Sale</masterLabel>
+            <translation><!-- Notice of Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rights Letters</masterLabel>
+            <translation><!-- Rights Letters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Document Type --></label>
+        <name>Document_Type__c</name>
+        <picklistValues>
+            <masterLabel>BKCVCUR</masterLabel>
+            <translation><!-- BKCVCUR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BKCVREP</masterLabel>
+            <translation><!-- BKCVREP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REPODOC</masterLabel>
+            <translation><!-- REPODOC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REPONTC</masterLabel>
+            <translation><!-- REPONTC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Entity Key --></label>
+        <name>Entity_Key__c</name>
+        <picklistValues>
+            <masterLabel>RescheduleSequenceNumber</masterLabel>
+            <translation><!-- RescheduleSequenceNumber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ScheduleIdentifier</masterLabel>
+            <translation><!-- ScheduleIdentifier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TerminationQuoteIdentifier</masterLabel>
+            <translation><!-- TerminationQuoteIdentifier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ext ID --></label>
+        <name>Ext_ID_del__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Number --></label>
+        <name>Form_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Type --></label>
+        <name>Form_Type__c</name>
+        <picklistValues>
+            <masterLabel>Automatic</masterLabel>
+            <translation><!-- Automatic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interactive</masterLabel>
+            <translation><!-- Interactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MigrationID --></label>
+        <name>MigrationID__c</name>
+    </fields>
+    <fields>
+        <label><!-- NumberOfCopies --></label>
+        <name>NumberOfCopies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target System --></label>
+        <name>Target_System__c</name>
+    </fields>
+    <fields>
+        <label><!-- certifiedmail --></label>
+        <name>certifiedmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- legalEnvelop --></label>
+        <name>legalEnvelop__c</name>
+    </fields>
+    <fields>
+        <label><!-- returnEnvelopRequired --></label>
+        <name>returnEnvelopRequired__c</name>
+    </fields>
+    <layouts>
+        <layout>Form Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

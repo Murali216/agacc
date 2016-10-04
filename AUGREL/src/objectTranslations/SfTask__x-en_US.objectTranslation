@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SfTask</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SfTask</value>
+    </caseValues>
+    <fields>
+        <label><!-- activityDate --></label>
+        <name>activityDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- collAccountNumber --></label>
+        <name>collAccountNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyBalance --></label>
+        <name>collActyBalance__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyCode --></label>
+        <name>collActyCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyDateTime --></label>
+        <name>collActyDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyPromiseAmt1 --></label>
+        <name>collActyPromiseAmt1__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyPromiseAmt2 --></label>
+        <name>collActyPromiseAmt2__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyPromiseDate1 --></label>
+        <name>collActyPromiseDate1__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyPromiseDate2 --></label>
+        <name>collActyPromiseDate2__c</name>
+    </fields>
+    <fields>
+        <label><!-- collActyReviewDate --></label>
+        <name>collActyReviewDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- collRecommendedPassStgy --></label>
+        <name>collRecommendedPassStgy__c</name>
+    </fields>
+    <fields>
+        <label><!-- collUserId --></label>
+        <name>collUserId__c</name>
+    </fields>
+    <fields>
+        <label><!-- createdById --></label>
+        <name>createdById__c</name>
+    </fields>
+    <fields>
+        <label><!-- createdDate --></label>
+        <name>createdDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentMileage --></label>
+        <name>currentMileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- description --></label>
+        <name>description__c</name>
+    </fields>
+    <fields>
+        <label><!-- faId --></label>
+        <name>faId__c</name>
+    </fields>
+    <fields>
+        <label><!-- financialAccountNumber --></label>
+        <name>financialAccountNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- isArchived --></label>
+        <name>isArchived__c</name>
+    </fields>
+    <fields>
+        <label><!-- isClosed --></label>
+        <name>isClosed__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastModifiedById --></label>
+        <name>lastModifiedById__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastModifiedDate --></label>
+        <name>lastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- ownerId --></label>
+        <name>ownerId__c</name>
+    </fields>
+    <fields>
+        <label><!-- priority --></label>
+        <name>priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceCreatedBy --></label>
+        <name>sourceCreatedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceCreatedDate --></label>
+        <name>sourceCreatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceSystemCreatedBy --></label>
+        <name>sourceSystemCreatedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- subject --></label>
+        <name>subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- systemModStamp --></label>
+        <name>systemModStamp__c</name>
+    </fields>
+    <fields>
+        <label><!-- taskId --></label>
+        <name>taskId__c</name>
+    </fields>
+    <fields>
+        <label><!-- taskStatus --></label>
+        <name>taskStatus__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

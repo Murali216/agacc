@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>CaseNumber</field>
+        <field>Owner</field>
+        <field>CreatedDate</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Lease_Deferral_Queue</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <description>Assign To Lease Deferral Queue</description>
+        <entryCriteria>
+            <formula>AND(TEXT(Service_Request_Type__c) = &quot;Extension or Deferral&quot;, Financial_Account__r.RecordType.DeveloperName = &quot;Lease&quot;)</formula>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Step 1</label>
+        <name>Step_1</name>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Retail_Extension_Queue</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <description>Assign to Retail Extension Queue</description>
+        <entryCriteria>
+            <formula>AND(TEXT(Service_Request_Type__c) = &quot;Extension or Deferral&quot;, Financial_Account__r.RecordType.DeveloperName = &quot;Retail&quot;)</formula>
+        </entryCriteria>
+        <label>Step 2</label>
+        <name>Step_2</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <description>Extension or Deferral approval process</description>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Case.Action__c</field>
+            <operation>equals</operation>
+            <value>Start Process</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Category__c</field>
+            <operation>equals</operation>
+            <value>Contract Modifications</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Service_Request_Type__c</field>
+            <operation>equals</operation>
+            <value>Extension or Deferral</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>In Process</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Last_Modified_Lan_Id_update</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Publish_Case_To_TFS</name>
+            <type>OutboundMessage</type>
+        </action>
+        <action>
+            <name>Update_Owner_to_Resolution_Team_Queue</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Update_Status_to_In_Process</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Denial_Reason_to_DENY_Code</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Last_Modified_Lan_Id_update</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Publish_Case_To_TFS</name>
+            <type>OutboundMessage</type>
+        </action>
+        <action>
+            <name>Update_Owner_to_Resolution_Team_Queue</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Update_Status_To_Resolved</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <label>Extension or Deferral</label>
+    <recordEditability>AdminOnly</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

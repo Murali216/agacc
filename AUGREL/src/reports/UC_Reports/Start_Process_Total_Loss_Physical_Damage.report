@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>DESCRIPTION</field>
+    </columns>
+    <columns>
+        <field>STATUS</field>
+    </columns>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATE</field>
+    </columns>
+    <columns>
+        <field>AGE</field>
+    </columns>
+    <columns>
+        <field>Case.Financial_Account_Customer_Name__c</field>
+    </columns>
+    <columns>
+        <field>Case.Financial_Account_Customer__c</field>
+    </columns>
+    <description>Create a Daily report of all &quot;Start Process&quot;, &quot;Total Loss (Physical Damage)&quot; notification cases that were resolved for the current date.</description>
+    <filter>
+        <criteriaItems>
+            <column>STATUS</column>
+            <operator>equals</operator>
+            <value>Resolved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Action__c</column>
+            <operator>equals</operator>
+            <value>Start Process</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Category__c</column>
+            <operator>equals</operator>
+            <value>Total Loss (Physical Damage)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Service_Request_Type__c</column>
+            <operator>equals</operator>
+            <value>Notification</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CASE_NUMBER</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Start Process Total Loss Physical Damage</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

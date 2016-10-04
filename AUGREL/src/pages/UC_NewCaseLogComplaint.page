@@ -1,0 +1,6 @@
+<apex:page standardController="Financial_Account__c" 
+            extensions="UC_NewCaseController"
+            action="{!LogComplaint}"> 
+            
+   <apex:include pageName="UC_NewCaseTemplate"/>
+</apex:page>

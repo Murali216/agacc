@@ -1,0 +1,879 @@
+<apex:page standardController="Financial_Account__c" extensions="faHighlightPanel">
+    <script src="/support/console/34.0/integration.js"/>
+    <apex:includeScript value="{!$Resource.jquery}"/>
+    <apex:includeScript value="{!URLFor($Resource.jqueryui1_11_4All, 'jquery-ui.min.js') }"/>
+    <link rel="stylesheet" href="{!URLFor($Resource.jqueryui1_11_4All,'jquery-ui.theme.min.css')}"/>    
+    <link rel="stylesheet" href="{!URLFor($Resource.jqueryui1_11_4All,'jquery-ui.structure.min.css')}"/>
+    <apex:includeScript value="{!$Resource.ctiEvents}"/>    
+    <apex:includeScript value="{!$Label.CIMplicity_JS_IIS_locale}"/>
+    
+    
+  <script>
+  
+    
+    var recordIdToNavigate='';
+    var recordName='';
+    var primaryTabId;
+    var $ = jQuery.noConflict();
+    
+    $(document).ready(function() {
+       setPrimaryTabId();
+       setTimeout( function(){ getUrlParams() }, 2000 );
+       setupBounceNotificationsIcon();
+    });
+        
+    
+    function openSubtab() {
+        //First find the ID of the primary tab to put the new subtab in
+        sforce.console.getEnclosingPrimaryTabId(openSubtab2);
+    }
+    
+    var openSubtab2 = function openSubtab2(result) {
+        //Now that we have the primary tab ID, we can open a new subtab in it
+         
+        var primaryTabId = result.id;
+        sforce.console.openSubtab(primaryTabId ,recordIdToNavigate, true,
+            recordName, null, null , recordName);
+    };
+       
+   function getUrlParams() {
+           getEnclosingPrimaryTabId();
+    }
+        
+    
+    var getTabIdAttemptCount = 0; //for error handling... looks like this somtimes fails on initial console load.
+    var getEnclosingPrimaryTabId = function getEnclosingPrimaryTabId() {
+            getTabIdAttemptCount++;
+            if(getTabIdAttemptCount < 10) {
+                sforce.console.getEnclosingPrimaryTabId(getTabLink);
+            }else{
+                //alert('unable to get url parameters from softPhone');
+                //saveSystemMessage('Failed to capture URL parameters from Financial Account getTabLink() after 10 calls. Financial AccountId: {!fa.Id}' );
+                console.log('DEBUG: FROM getEnclosingPrimaryTabId(): Failed to capture URL parameters from Financial Account getTabLink() after 10 calls. Financial AccountId: {!fa.Id}' );
+            }
+        }
+        
+    var getTabLink = function getTabLink(result) {
+            if(result.id && result.id != "null") {
+                sforce.console.getTabLink(sforce.console.TabLink.TAB_ONLY, result.id, parsePrimaryTabLinkAndDispatchEvents);
+                if(getTabIdAttemptCount > 2) {
+                    //saveSystemMessage('URL parameters succeeded, but failed after more than one call. Financial AccountId: {!fa.Id}' );
+                    console.log('DEBUG: FROM getTabLink(): URL parameters succeeded, but failed after more than one call. Financial AccountId: {!fa.Id}' );
+                }
+            }else{
+                setTimeout( function(){ getEnclosingPrimaryTabId() }, 300 );
+            }
+        }
+        
+   var parsePrimaryTabLinkAndDispatchEvents = function(result) {
+            var primaryTabUrl = result.tabLink;
+            
+            //var primaryTabUrl = decodeURIComponent(result.tabLink); --was doing this but was getting failures
+            console.log('DEBUG: faHighlightPanel: uncleaned primaryTabUrl = ' + primaryTabUrl);
+            
+            primaryTabUrl = primaryTabUrl.replace(/%25/g, '%');
+            primaryTabUrl = primaryTabUrl.replace(/%3F/g, '?');
+            primaryTabUrl = primaryTabUrl.replace(/%26/g, '&');
+            primaryTabUrl = primaryTabUrl.replace(/%3D/g, '=');
+            
+            var urlParametersObject = getUrlVarsAsObject(primaryTabUrl);
+
+            
+
+            if(urlParametersObject.KVP_ACCTNUM && urlParametersObject.KVP_ACCTNUM == 'null') {
+                urlParametersObject.KVP_ACCTNUM = '';
+            }
+            
+            
+
+            urlParametersObject.faidFromPop = '{!fa.Id}';
+           
+            
+             
+            if(urlParametersObject.CIMDSK_InteractionID) {
+                var eventMessage = stringifyObjectForEventMessage(urlParametersObject);
+                console.log('DEBUG: faHighlightPanel eventMessage:' + eventMessage);
+                sforce.console.fireEvent(CONSOLE_EVENT_FA_POPPED, eventMessage);
+                console.log('DEBUG: faHighlightPanel CONSOLE_EVENT_FA_POPPED dispatched.');
+            }else{
+                console.log('DEBUG: faHighlightPanel PARAMS OBJECT without CIMDSK_InteractionID.');
+                console.log('DEBUG: faHighlightPanel parameters object: ' + JSON.stringify(urlParametersObject) );
+            }
+        };
+        
+        function getUrlVarsAsObject(url)  {
+        
+           var vars = {}, hash;
+           if(url.indexOf('?') > 0) {
+             var vars = {}, hash;
+             var hashes = url.slice(url.indexOf('?') + 1).split('&');
+             var prop;
+             for(var i = 0; i < hashes.length; i++)
+             {
+                 hash = hashes[i].split('=');
+                 prop = hash[0];
+                 if(prop && prop != 'isdtp' && prop != 'isWsVw' && prop != 'sfdcIFrameOrigin' && prop != 'nonce') {
+                     vars[prop] = hash[1];
+                 }
+             }
+         }
+           return vars;
+     }
+     
+      function sfdcCloseTabEventHandler(result) {
+          if(result.id) {
+              var objForMessage = {};
+                 // jhicks objForMessage.faid = controllerObjId;
+                  objForMessage.faid = '{!FA.Id}'.slice(0,15);
+                  objForMessage.tabId = result.id;
+              var msgString = stringifyObjectForEventMessage(objForMessage);
+              sforce.console.fireEvent( CONSOLE_EVENT_FA_TAB_CLOSED, msgString ) ;
+          }
+      }
+      
+        function setPrimaryTabId() {
+            sforce.console.getFocusedPrimaryTabId(
+                function(result) {
+                    if(result.success) 
+                    {
+                        primaryTabId = result.id;
+                        sforce.console.addEventListener(sforce.console.ConsoleEvent.CLOSE_TAB, sfdcCloseTabEventHandler, {tabId : result.id});
+                        //console.log('***** event listerner set to execute closetab event');
+                    }
+                }
+            ) ;
+        }
+        
+        function sfdcCloseTabEventHandler(result) {
+            if(result.id) {
+                var objForMessage = {};
+                 // jhicks objForMessage.faid = controllerObjId;
+                  objForMessage.faid = '{!FA.Id}'.slice(0,15);
+                    objForMessage.tabId = result.id;
+                var msgString = stringifyObjectForEventMessage(objForMessage);
+                sforce.console.fireEvent( CONSOLE_EVENT_FA_TAB_CLOSED, msgString ) ;                       
+                console.log('DEBUG: CONSOLE_EVENT_FA_TAB_CLOSED fired');
+                
+            }
+        }             
+ 
+        //  from Collections Highlights page
+        function openFAInPrimaryTab(faId, faAccountNumber){
+            if(sforce.console.isInConsole()){
+                openPrimaryTabAfterValidations('/' + faId, faAccountNumber, true);
+            }else{
+                window.open('/' + faId);
+            }
+        }
+         
+        function openPrimaryTabAfterValidations(url, tabLabel, setFocus) {
+            sforce.console.openPrimaryTab(null, url, setFocus, tabLabel, null);
+        }
+
+        
+                 
+  </script>
+  <style>
+    td {
+        padding:1px 5px 1px 5px;
+        vertical-align:top;
+        border-right:1px solid #d3d1d1; 
+        font-size:12px;
+        color: #16325c;
+    }
+    th {
+    	border:0px;
+    }
+    .phoneDiv {
+        padding:1px;
+        color: #16325c;
+        float:left;
+    }
+    .phonePanelColumns {
+         border-style:none;
+         vertical-align:center;
+         padding-top:0px;
+         padding-bottom:0px;
+    }
+   
+   .disableClickToDial:after {
+            content: url("/img/btn_nodial_inline.gif");
+            padding-right: 4px;
+    }
+    .title {
+        font-weight:bold;
+        color:#4A4A4A6;
+    }
+    a {
+        color:#4990E2;
+        text-decoration:none;
+    }
+    
+    .dlg-no-title .ui-dialog-titlebar { display: none;  }
+    .ui-dialog-shadow {  box-shadow: 5px 5px 5px #888888; }
+  </style>
+  <apex:form >
+  <div id="thePage">
+      
+  
+    <table style="border-bottom: 1px solid #d3d1d1; border-left: 1px solid #d3d1d1; width:100%; border-collapse:collapse;">
+    	<th style="width:25%"/> 
+    	<th style="width:25%"/> 
+    	<th style="width:13%"/> 
+    	<th style="width:19%" colspan="2"/> 
+    	<th style="border-right: 0px"/> 
+        <tr>        
+                                  <!---------------------- ROW 1 ---------------------->
+                                  <!---------------------- ROW 1 ---------------------->
+                                  <!---------------------- ROW 1 ---------------------->
+                                  <!---------------------- ROW 1 ---------------------->
+                                  <!---------------------- ROW 1 ---------------------->
+                                  
+            <td>                          <!-- col1 -->         
+              <a href="#" style='font-weight:bold'
+                onclick="recordIdToNavigate='/{!FAC.Id}'; recordName='{!fac.Customer_Full_Name__c}';openSubtab();">
+                {!fac.Customer_Full_Name__c}</a>
+
+
+              
+              &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                  
+              <apex:outputPanel id="ssnMask">  
+                   <a href = "#" style='font-weight:bold'
+                         onclick= "$('#ssn').dialog( 'open' );"   >
+                            {!PrimarySSNType}: XXXXXXXXX
+                    </a>     
+              </apex:outputPanel> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+              
+              <c:UC_FACOtherAccounts parameters="{!FA.Id};{!FAC.account__r.Social_Security_Number__pc};{!FAC.Account__r.Tax_Identification_Number__c};"
+                                      borrower="Primary"/>
+            
+                            
+            </td>
+                                                <!-- col2 -->   
+           <td style="display:{!if (CoBorrower.Id == null, 'none', 'table-cell')}">
+                 
+                    <a href="#" style='font-weight:bold'
+                          onclick="recordIdToNavigate='/{!CoBorrower.Id}'; recordName='{!CoBorrower.Customer_Full_Name__c}';openSubtab();">
+                          {!CoBorrower.Customer_Full_Name__c}</a> 
+                        
+        
+                        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                            
+                        <apex:outputPanel id="ssnMask2">  
+                             <a href = "#" style='font-weight:bold'
+                                   onclick= "$('#ssn2').dialog( 'open' );"   >
+                                      {!CoborrowerSSNType}: XXXXXXXXX
+                              </a>              
+                        </apex:outputPanel> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                        <c:UC_FACOtherAccounts parameters="{!FA.Id};{!CoBorrower.account__r.Social_Security_Number__pc};{!CoBorrower.Account__r.Tax_Identification_Number__c};"
+                                borrower="Coborrower"/>
+                            
+            </td>
+            
+            <td>
+	           <div style="width:120px;float:left">
+	                  <apex:outputText styleClass="title" value="{!FA.Finance_Account_Product_Type__c+' Account:'}"/> <br/>
+	                  <apex:outputText value="{!FA.Name}" /> 
+	            </div>
+	            <div style="float:left">    
+	                   <apex:image id="notificationsIcon" value="{!URLFOR($Resource.UniversalConsoleIcons,'Notifications2.png')}" 
+	                               rendered="{!hasNotifications}" style="vertical-align:middle" width="20px" height="20px"/>
+	            </div>
+            </td>
+             
+            <!--  td style="width 20%">                         
+                        <apex:outputText value="Payments Remaining:" />&nbsp;
+                        <apex:outputField value="{!FA.Payment_Term_Remaining__c}"/> 
+              
+            </td  --> 
+            
+            <td style="width:14%; border-right:0px " >                           <!-- col4-->
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Payment_Date_Next__c.label}"/> <br/>
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Payment_Amount_Scheduled__c.label}"/> <br/>
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Payment_Amount_Past_Due__c.label}"/>
+            </td>
+            
+            <td style="width:5%">                                          <!-- col5 -->
+                <apex:outputField value="{!FA.Payment_Date_Next__c}"/> <br/>
+                <apex:outputField value="{!FA.Payment_Amount_Scheduled__c}"/> <br/>
+                <apex:outputField value="{!FA.Payment_Amount_Past_Due__c}"/> 
+            </td>
+            
+            <td style="border-right:0px">                           <!-- col6 -->
+                <apex:outputText styleClass="title" value="Dealer Information"/><br/>
+                <a href="#" style='font-weight:bold'
+                    onclick='recordIdToNavigate="/{!FA.Dealership__c}"; recordName="{!FA.Dealership__r.name}";openSubtab();'>
+                  {!FA.Dealership__r.name}</a> <br/>
+                <!--  apex:outputField value="{!FA.Dealership__r.phone}"/ --> 
+                              <support:clickToDial number="{!FA.Dealership__r.phone}" 
+                                                   entityId="{!FA.Id}" />
+                
+            </td>
+        </tr>
+    
+                                  <!---------------------- ROW 2 ---------------------->
+                                  <!---------------------- ROW 2 ---------------------->
+                                  <!---------------------- ROW 2 ---------------------->
+                                  <!---------------------- ROW 2 ---------------------->
+                                  <!---------------------- ROW 2 ---------------------->
+                                  <!---------------------- ROW 2 ---------------------->
+        <tr>                              
+            <td>                            <!-- col1 -->
+              
+                        <apex:outputField value="{!fac.Mailing_Street1__c}"/>  <br/> 
+                        <apex:outputText value="{!fac.Mailing_City__c + ', '+ fac.Mailing_State__c +'   '+ fac.Mailing_Zip__c}"/>  
+            </td>
+                                    <!-- col2 -->
+                                    
+            <td  style="display:{!if (CoBorrower.Id == null, 'none', 'table-cell')}">                           
+              
+                        <apex:outputField value="{!CoBorrower.Mailing_Street1__c}"/>  <br/> 
+                        <apex:outputText value="{!CoBorrower.Mailing_City__c + ', '+ CoBorrower.Mailing_State__c +'   '+ CoBorrower.Mailing_Zip__c}"/>  
+            </td>
+              
+            <td>                            <!-- col3-->
+                        <apex:outputText value="{!FA.Collateral__r.Model_Year__c +' '+ FA.Collateral__r.Make__c +' '+ FA.Collateral__r.Model_Name__c}"/> &nbsp;&nbsp;   <br/>
+                        <apex:outputText value="{!FA.Collateral__r.Vehicle_Identification_Number__c}"/>
+                
+            </td>
+
+            <td style="border-right:0px">                           <!-- col4-->
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Charges_Late__c.label}"/> <br/>
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Charges_Miscellaneous__c.label}"/> <br/>
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Total_Amount_Due__c.label}"/>
+              
+            </td>
+            
+            <td>                            <!-- col5 -->
+              
+                <apex:outputField value="{!FA.Charges_Late__c}"/> <br/>
+                <apex:outputField value="{!FA.Charges_Miscellaneous__c}"/> <br/>
+                <apex:outputField value="{!FA.Total_Amount_Due__c }"/> 
+            </td>
+            
+            <td style="border-right:0px">                            <!-- col6 -->
+            			<br/>
+                            <apex:outputText id="privacyNotices" value="Privacy Notices" style="font-weight:bold"/> &nbsp;&nbsp;&nbsp;
+                            <apex:outputPanel id="privacyPanel">
+                                  <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'green_checkmark.jpg')}" style="vertical-align:middle" width="15px" height="15px"
+                                        rendered="{!privacyIcon=='green'}"/>
+                                 <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'yellow_symbol.jpg')}" style="vertical-align:middle" width="15px" height="15px"
+                                        rendered="{!privacyIcon=='yellow'}"/>
+                                 <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'red_stop_symbol.jpg')}" style="vertical-align:middle" width="15px" height="15px"
+                                        rendered="{!privacyIcon=='red'}"/>
+                           	</apex:outputPanel> 
+            </td>
+        </tr>
+        
+        
+                                         <!---------------------- ROW 3 ---------------------->
+                                         <!---------------------- ROW 3 ---------------------->
+                                         <!---------------------- ROW 3 ---------------------->
+                                         <!---------------------- ROW 3 ---------------------->
+                                         <!---------------------- ROW 3 ---------------------->
+                                         <!---------------------- ROW 3 ---------------------->
+                                         
+        <tr>                                 
+            <td>                            <!-- col1 -->
+                 <apex:panelGrid columns="2" columnClasses="phonePanelColumns">
+                    <apex:outputPanel rendered="{!if(fac.Home_Phone_Garage__c == null,false,true)}">
+                      <apex:panelGroup >
+
+                         <div class="phoneDiv">
+                            <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'home_icon.jpg')}" style="color:#4F6A92" width="15px" height="15px" title="Home Phone" />
+                         </div>
+                         
+                         <div class="phoneDiv">
+                              <support:clickToDial number="{!fac.Home_Phone_Garage__c}" 
+                                                   entityId="{!FAC.Id}" rendered="{!canDialPrimary[0]}"/>
+                              <apex:outputText value="{!fac.Home_Phone_Garage__c}" title="Home Phone   {!FAC.Home_Phone_No_Call_Reason_Garage__c}" 
+                                                    styleClass="disableClickToDial"  rendered="{!!canDialPrimary[0]}"/>
+                         </div>
+                        <div class="phoneDiv">
+                            <apex:outputText value="{!FAC.Home_Phone_No_Call_Reason_Code_Garage__c}" style="margin-left:3px;" title="Home Phone   {!FAC.Home_Phone_No_Call_Reason_Garage__c}" />
+                        </div>
+    
+                      </apex:panelGroup>
+                      
+                    </apex:outputPanel>
+    
+                        
+               <apex:outputPanel rendered="{!if(fac.Mobile_Phone__c == null,false,true)}">
+                   <apex:panelGroup >
+                    <div class="phoneDiv">
+                         <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'cell_icon.jpg')}" style="color:#4F6A92"  width="15px" height="15px"  title="Mobile Phone"/>&nbsp; 
+                    </div>
+                      <div class="phoneDiv">
+                        <support:clickToDial number="{!fac.Mobile_Phone__c}" 
+                                           entityId="{!FAC.Id}" rendered="{!canDialPrimary[1]}"/>
+                        <apex:outputText value="{!fac.Mobile_Phone__c}" title="Mobile Phone   {! FAC.Mobile_Phone_No_Call_Reason__c}" 
+                                            styleClass="disableClickToDial"  rendered="{!!canDialPrimary[1]}"/>
+                     </div>
+                      <div class="phoneDiv">
+                          <apex:outputText value="{!FAC.Mobile_Phone_No_Call_Reason_Code__c}" style="margin-left:3px" title="Mobile Phone   {! FAC.Mobile_Phone_No_Call_Reason__c}" />
+                        </div>
+                     </apex:panelGroup>
+                  </apex:outputPanel>
+                            
+                <apex:outputPanel rendered="{!if(fac.Work_Phone_Garage__c == null,false,true)}">
+                   <apex:panelGroup >
+                   <div class="phoneDiv">
+                        <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'office_icon.jpg')}" style="color:#4F6A92"  width="15px" height="15px"   title="Work Phone"/> &nbsp;
+                    </div>
+                      <div class="phoneDiv">
+                         <support:clickToDial number="{!fac.Work_Phone_Garage__c}"
+                                               entityId="{!FAC.Id}" rendered="{!canDialPrimary[2]}"/>
+                  
+                        <apex:outputText value="{!fac.Work_Phone_Garage__c}" title="Work Phone   {!FAC.Work_Phone_No_Call_Reason_Garage__c}" 
+                                                styleClass="disableClickToDial"  rendered="{!!canDialPrimary[2]}"/>
+                       </div>
+                        <div class="phoneDiv">
+                            <apex:outputText value="{!FAC.Work_Phone_NoCall_Reason_Code_Garage__c}" style="margin-left:3px" title="Work Phone   {!FAC.Work_Phone_No_Call_Reason_Garage__c}"/>
+                        </div>
+                    </apex:panelGroup>
+                   </apex:outputPanel>  
+                   <apex:panelGroup >
+                   <div class="phoneDiv">
+                        <apex:outputField value="{!fac.Servicing_Email__c}"  title="Email Address"/>
+                    </div>
+                    </apex:panelGroup>
+                 </apex:panelGrid> 
+                  
+          
+         </td>
+        
+                                   <!-- col2 --> 
+                        
+        <td style="display:{!if (CoBorrower.Id == null, 'none', 'table-cell')}">                            
+                  <apex:panelGrid columns="2" columnClasses="phonePanelColumns">
+                    <apex:outputPanel style="margin-right:15px" rendered="{!if(Coborrower.Home_Phone_Garage__c == null,false,true)}">
+                      <apex:panelGroup >
+
+                         <div class="phoneDiv">
+                        
+                            <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'home_icon.jpg')}" style="color:#4F6A92" width="15px" height="15px" title="Home Phone" />
+                         </div>
+                         
+                           <div class="phoneDiv">
+                               <support:clickToDial number="{!Coborrower.Home_Phone_Garage__c}" 
+                                                   entityId="{!Coborrower.Id}" rendered="{!canDialCoborrower[0]}"/>
+                               <apex:outputText value="{!Coborrower.Home_Phone_Garage__c}" title="Home Phone   {!Coborrower.Home_Phone_No_Call_Reason_Garage__c}" 
+                                                    styleClass="disableClickToDial"  rendered="{!!canDialCoborrower[0]}"/>
+                            </div>
+                            <div class="phoneDiv">
+                                <apex:outputText value="{!Coborrower.Home_Phone_No_Call_Reason_Code_Garage__c}" style="margin-left:3px;" title="Home Phone   {!Coborrower.Home_Phone_No_Call_Reason_Garage__c}" />
+                            </div>
+    
+                      </apex:panelGroup>
+                      
+                    </apex:outputPanel>
+                <!-- /span    -->
+                        
+               <apex:outputPanel style="margin-right:15px" rendered="{!if(Coborrower.Mobile_Phone__c == null,false,true)}">
+                   <apex:panelGroup >
+                    <div class="phoneDiv">
+                         <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'cell_icon.jpg')}" style="color:#4F6A92"  width="15px" height="15px"  title="Mobile Phone"/>&nbsp; 
+                    </div>
+                      <div class="phoneDiv">
+                        <support:clickToDial number="{!Coborrower.Mobile_Phone__c}" 
+                                           entityId="{!Coborrower.Id}"  rendered="{!canDialCoborrower[1]}"/>
+                    </div>
+                        <apex:outputText value="{!Coborrower.Mobile_Phone__c}" title="Mobile Phone   {! Coborrower.Mobile_Phone_No_Call_Reason__c}" 
+                                            styleClass="disableClickToDial" rendered="{!!canDialCoborrower[1]}"/>
+                      <div class="phoneDiv">
+                          <apex:outputText value="{!Coborrower.Mobile_Phone_No_Call_Reason_Code__c}" style="margin-left:3px" title="Mobile Phone   {! Coborrower.Mobile_Phone_No_Call_Reason__c}" />
+                        </div>
+                     </apex:panelGroup>
+                  </apex:outputPanel>
+                            
+                <apex:outputPanel style="margin-right:15px;vertial-align:bottom" rendered="{!if(Coborrower.Work_Phone_Garage__c == null,false,true)}">
+                   <apex:panelGroup >
+                   <div class="phoneDiv">
+                        <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'office_icon.jpg')}" style="color:#4F6A92"  width="15px" height="15px"   title="Work Phone"/> &nbsp;
+                    </div>
+                      <div class="phoneDiv">
+                         <support:clickToDial number="{!Coborrower.Work_Phone_Garage__c}"
+                                               entityId="{!Coborrower.Id}" rendered="{!canDialCoborrower[2]}"/>
+                    </div>
+                        <apex:outputText value="{!Coborrower.Work_Phone_Garage__c}" title="Work Phone   {!Coborrower.Work_Phone_No_Call_Reason_Garage__c}" 
+                                                styleClass="disableClickToDial"   rendered="{!!canDialCoborrower[2]}"/>
+                        <div class="phoneDiv">
+                        <apex:outputText value="{!Coborrower.Work_Phone_NoCall_Reason_Code_Garage__c}" style="margin-left:3px" title="Work Phone   {!Coborrower.Work_Phone_No_Call_Reason_Garage__c}"/>
+                    </div>
+                    </apex:panelGroup>
+                   </apex:outputPanel>  
+                   <apex:panelGroup >
+                   <div class="phoneDiv">
+                        <apex:outputField value="{!Coborrower.Servicing_Email__c}"  title="Email Address"/>
+                    </div>
+                    </apex:panelGroup>
+                 </apex:panelGrid> 
+                
+            </td>
+            
+            <td>                            <!-- col3-->
+                <apex:outputText value="Account Status "/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'green_checkmark.jpg')}" width="15px" height="15px" 
+                            rendered="{!accountStatusIcon == 'GREEN'}" title="{!accountStatusMsg}"  style="vertical-align:middle"/>
+                <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'yellow_symbol.jpg')}" width="15px" height="15px" 
+                            rendered="{!accountStatusIcon == 'YELLOW'}" title="{!accountStatusMsg}"  style="vertical-align:middle"/> &nbsp;
+                <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'red_stop_symbol.jpg')}" width="15px" height="15px" 
+                            rendered="{!accountStatusIcon == 'RED'}" title="{!accountStatusMsg}"  style="vertical-align:middle"/>
+                <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'blue_terminated.png')}" width="15px" height="15px" 
+                            rendered="{!accountStatusIcon == 'BLUE'}" title="{!accountStatusMsg}"  style="vertical-align:middle"/> &nbsp;
+                
+                
+                <div Id="authorizedPartyPanel" style="margin-top:5px">
+                      <apex:outputText value="Authorized Parties"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <apex:image id="authPartyIcon" value="{!URLFOR($Resource.UniversalConsoleIcons,'3rdPartyAuthIcon.jpg')}" style="vertical-align:middle" width="20px" height="20px"
+                             rendered="{!hasAuthorizedParties}"/>
+                </div>
+             
+
+              
+            </td>
+            
+
+            <td  style="border-right:0px">                          <!-- col4-->
+                <br/>
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Revised_Maturity_Date__c.label}"  rendered="{!FA.Revised_Maturity_Date__c != null}"/> 
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Maturity_Date__c.label}"  rendered="{!FA.Revised_Maturity_Date__c == null}"/> <br/>
+                <apex:outputText value="{!$ObjectType.Financial_Account__c.fields.Payoff_Amount_Retail_or_Lease__c.label}"/>
+            </td>
+            
+            <td>                            <!-- col5 -->
+                         <br/>
+                         <apex:outputField value="{!FA.Revised_Maturity_Date__c}" rendered="{!FA.Revised_Maturity_Date__c != null}"/>
+                        <apex:outputField value="{!FA.Maturity_Date__c}" rendered="{!FA.Revised_Maturity_Date__c == null}"/> <br/>
+                        <apex:outputField value="{!FA.Payoff_Amount_Retail_or_Lease__c}"/> 
+            </td>
+            
+            <td  style="border-right:0px">                            <!-- col6 -->								
+	                        <apex:outputText value="Title Tracker"  style="font-weight:bold"/> &nbsp;&nbsp;&nbsp;
+	                        <apex:outputField value="{!FA.Title_Tracker__c}" />  &nbsp;&nbsp;&nbsp;
+	                        <apex:outputPanel >
+	                            <apex:image value="{!URLFOR($Resource.UniversalConsoleIcons,'yellow_symbol.jpg')}" style="vertical-align:middle" width="15px" height="15px"
+	                                    rendered="{!titleTrackerIcon=='yellow'}"/>
+	                       </apex:outputPanel>
+            </td> 
+        </tr>
+  
+    </table>
+
+    </div> 
+   <!------------------------------- Privacy Elections Popup ------------------------------------->
+
+  <div id="privacyPrefs">
+    <table style="border: 1px solid #d3d1d1; width:100%;border-collapse:collapse; ">
+  
+        <tr style="border-bottom:1px solid #d3d1d1; background-color: #F4F6F9">
+            <td> 
+                <apex:outputText value="Customer" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="3rd Party" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Affiliate Marketing" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Toyota/Lexus Dealer" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="TFS Telemarketing" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Flag Office of Foreign..." styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Affiliate Sharing" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Credit App/Rpt" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Flag Do Not Call" styleClass="title"/>
+            </td>  
+        </tr>
+        
+        <tr style="border-bottom:1px solid #d3d1d1">
+            <td>
+                <apex:outputField value="{!FAC.Customer_Full_Name__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FAC.Privacy_Election_Third_Party_Sharing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FAC.Privacy_Election_Affiliate_Marketing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FAC.Privacy_Election_Dealership__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FAC.Privacy_Election_Telemarketing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FAC.Flag_Office_Of_Foreign_Asset_Control__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FAC.Privacy_Election_Affiliate_Sharing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FAC.Privacy_Election_FCRA_Sharing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FA.Flag_Do_Not_Call__c}"/>
+            </td>
+        </tr>
+    
+        <apex:outputPanel rendered="{!coBorrower.Id != null}">
+        <tr style="border-bottom:1px solid #d3d1d1">
+            <td>
+                <apex:outputField value="{!coborrower.Customer_Full_Name__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!CoBorrower.Privacy_Election_Third_Party_Sharing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!CoBorrower.Privacy_Election_Affiliate_Marketing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!CoBorrower.Privacy_Election_Dealership__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!CoBorrower.Privacy_Election_Telemarketing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!CoBorrower.Flag_Office_Of_Foreign_Asset_Control__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!CoBorrower.Privacy_Election_Affiliate_Sharing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!CoBorrower.Privacy_Election_FCRA_Sharing__c}"/>
+            </td>
+            <td>
+                <apex:outputField value="{!FA.Flag_Do_Not_Call__c}"/>
+            </td>
+        </tr>
+        </apex:outputPanel>
+    
+    
+    </table>
+</div>
+   <!------------------------------- END  Privacy Elections Popup ------------------------------------->
+   
+    <!------------------------------- Authorized Party Popup ------------------------------------->
+  <div id="authorizedParty" style="height:100%">
+    <table style="border: 1px solid #d3d1d1; width:100%; border-collapse:collapse; ">
+  
+        <tr style="border-bottom:1px solid #d3d1d1; background-color: #F4F6F9">
+            <td> 
+                <apex:outputText value="Authorized 3rd Party" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Authorized Type" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Authorized Expiration" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Good Thru Date" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="3093 Authorization" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Description" styleClass="title"/>
+            </td>  
+
+        </tr>
+        
+        
+        <apex:repeat value="{!authorizedParty}" var="Ap">
+            <tr style="border-bottom:1px solid #d3d1d1; ">
+                <td> 
+                   <apex:outputLink value="{!Ap.Id}">{!Ap.Authorized_Third_Party__c}</apex:outputLink>
+                </td>  
+                <td> 
+                    <apex:outputText value="{!Ap.Authorization_Type__c}"/>
+                </td>  
+                <td> 
+                    <apex:outputText value="{!Ap.Authorization_Expiration__c}"/>
+                </td>  
+                <td> 
+                    <apex:outputField value="{!Ap.Good_Thru_Date__c}"/>
+                </td>  
+                <td> 
+                    <apex:outputText value="{!Ap.Type_of_Authorization_Granted__c}"/>
+                </td>   
+                <td> 
+                    <apex:outputText value="{!Ap.Description}"/>
+                </td>  
+            </tr>
+        </apex:repeat>
+     </table>
+</div>
+   <!------------------------------- END Authorized Party Popup ------------------------------------->  
+
+    <div id="ssn" style="padding:5px; border:1px solid #4A4A4A">
+         <apex:outputText value="{!fac.account__r.Social_Security_Number__pc}" rendered="{!primarySSNType == 'SSN'}"/>  
+         <apex:outputText value="{!fac.Account__r.Tax_Identification_Number__c}" rendered="{!primarySSNType != 'SSN'}"/>  
+    </div>
+    <div id="ssn2" style="padding:5px; border:1px solid #4A4A4A">
+         <apex:outputText value="{!coborrower.account__r.Social_Security_Number__pc}" rendered="{!coborrowerSSNType == 'SSN'}"/>  
+         <apex:outputText value="{!coborrower.Account__r.Tax_Identification_Number__c}" rendered="{!coborrowerSSNType != 'SSN'}"/>  
+    </div>  
+    
+ <!------------------------------- Notifications ------------------------------------->
+  <div id="Notifications" style="height:100%">
+    <table style="border: 1px solid #d3d1d1; width:100%; border-collapse:collapse; ">
+  
+        <tr style="border-bottom:1px solid #d3d1d1; background-color: #F4F6F9">
+            <td style="width:10%"> 
+                <apex:outputText value="Notification Id" styleClass="title"/>
+            </td>  
+            <td style="width:10%"> 
+                <apex:outputText value="Priority" styleClass="title"/>
+            </td>  
+            <td style="width:10%"> 
+                <apex:outputText value="Start Date" styleClass="title"/>
+            </td>  
+            <td style="width:10%"> 
+                <apex:outputText value="Expiration Date" styleClass="title"/>
+            </td>  
+            <td> 
+                <apex:outputText value="Notification" styleClass="title"/>
+            </td>  
+       </tr>
+       <apex:repeat value="{!notifications}" var="n">
+            <tr style="border-bottom:1px solid #d3d1d1; ">
+	            <td> 
+	                <apex:outputLink value="{!n.Id}">{!n.Name}</apex:outputLink>
+	            </td>  
+	            <td> 
+	                <apex:outputField value="{!n.Priority_Flag__c}" />
+	            </td>  
+	            <td> 
+	                <apex:outputField value="{!n.Start_Date__c}"/>
+	            </td>  
+	            <td> 
+	                <apex:outputField value="{!n.Expiration_Date__c}" />
+	            </td>  
+	            <td> 
+	                <apex:outputField value="{!n.Notification_Content__c}" />
+	            </td>  
+            </tr>
+       
+       </apex:repeat>
+       </table>
+ <!------------------------------- End Notifications ------------------------------------->
+   </div>             
+</apex:form>
+
+<script>
+
+        
+            $("#privacyPrefs, #authorizedParty, #Notifications").dialog({
+                autoOpen: false,
+                modal: false,
+                width: "90%", 
+                height: 135,
+                resizeable: false,
+                draggable: false,
+                position: { my: "left top", at: "left top", of: "#thePage" },
+                dialogClass: "dlg-no-title ui-dialog-shadow"
+            });    
+            
+            
+           
+            $("#ssn").dialog({
+                autoOpen: false,
+                modal: false,
+                width: 80, 
+                height: 70,
+                resizeable: false,
+                draggable: false,
+                position: { my: "left top", at: "right top", of: "[Id$=ssnMask]" },
+                dialogClass: "ui-dialog-shadow",
+                title: "{!primarySSNType}"
+            });   
+             $("#ssn2").dialog({
+                autoOpen: false,
+                modal: false,
+                width: 80, 
+                height: 70,
+                resizeable: false,
+                draggable: false,
+                position: { my: "left top", at: "right top", of: "[Id$=ssnMask2]" },
+                dialogClass: "ui-dialog-shadow",
+                title: "{!coborrowerSSNType}"
+            });   
+     
+     		// delay hover
+     		var setTimeoutConst;
+            $("[Id$=privacyPanel]").hover(function() {
+                // delay hover
+                setTimeoutConst = setTimeout( function(){$('#privacyPrefs').dialog( 'open' )}, 1000);
+               }, 
+               // cancel hover if not started
+               function() {clearTimeout(setTimeoutConst )}
+              ); 
+            
+            $("#privacyPrefs").hover(function() {}, 
+                function() {
+                   $('#privacyPrefs').dialog( 'close' );
+                }); 
+    
+            $("[Id$=authPartyIcon]").hover(function() {
+                setTimeoutConst = setTimeout( function(){$('#authorizedParty').dialog( 'open' )}, 1000);
+               },  function() {clearTimeout(setTimeoutConst )}
+              ); 
+            
+            $('#authorizedParty').hover(function() {
+               }, function() {
+                $('#authorizedParty').dialog( 'close' );
+            }); 
+            
+       
+            $("[Id$=ssnMask]").click(function() {
+                $('#ssn').dialog( 'open' );
+            }, function() {
+            }); 
+            
+            /******************** Notifications Icon *******************/
+				var _counter;
+	
+				function setupBounceNotificationsIcon() {
+				  // bounce notifications icon every 5 seconds
+				  _counter = setInterval(function() {bounceNotificationsIcon()}, 7000);
+				}
+				        
+	            function bounceNotificationsIcon() {
+	            
+		           // this function will run every 1 seconds while the user does not mouseout the image
+		
+	                $("[Id$=notificationsIcon]").effect( "bounce", { direction:"right", distance:15, times: 5 }, 2000 );
+	
+	            }
+	
+				// mouseover icon
+				$("[Id$=notificationsIcon]").hover(function() {
+				        // cancel bounce
+					    clearInterval(_counter);
+                		setTimeoutConst = setTimeout( function(){$('#Notifications').dialog( 'open' )}, 1000);
+		
+					}, function() {clearTimeout(setTimeoutConst )
+				  });
+				           
+	            // mouseout notifications panel
+	            $('#Notifications').hover(function() {
+		               }, function() {
+		                   $('#Notifications').dialog( 'close' );
+		         });            
+            /******************** Notifications Icon *******************/
+            
+    
+</script>
+</apex:page>

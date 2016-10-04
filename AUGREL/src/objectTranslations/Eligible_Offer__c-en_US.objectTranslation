@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Eligible Offer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Eligible Offers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Certificate Number --></label>
+        <name>Certificate_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Eligible Date --></label>
+        <name>Eligible_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Financial Account --></label>
+        <name>Financial_Account__c</name>
+        <relationshipLabel><!-- Eligible Offers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Next Best Action --></label>
+        <name>Next_Best_Action__c</name>
+        <relationshipLabel><!-- Eligible Offers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presented</masterLabel>
+            <translation><!-- Presented --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

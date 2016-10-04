@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Charged Off Financial Account</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Charged Off Financial Accounts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Number --></label>
+        <name>CO_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active Misc Rec --></label>
+        <name>CO_Active_Misc_Rec__c</name>
+    </fields>
+    <fields>
+        <label><!-- Past Due Amount --></label>
+        <name>CO_Amount_Past_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Associated Cost --></label>
+        <name>CO_Associated_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auction House Fee --></label>
+        <name>CO_Auction_House_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch Number --></label>
+        <name>CO_Branch_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Charged Off Amount --></label>
+        <name>CO_Charged_Off_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Date --></label>
+        <name>CO_Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comment &quot;Other&quot; Amount --></label>
+        <name>CO_Comment_Other_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agency Commission Rate --></label>
+        <name>CO_Commison_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Condition Code --></label>
+        <name>CO_Compliance_Condition_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Bureau Report  Flag --></label>
+        <name>CO_Credit_Bureau_Report_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit / Recovery Score --></label>
+        <name>CO_Credit_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Charged Off Date --></label>
+        <name>CO_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Rate --></label>
+        <name>CO_Dealer_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dispute Flag --></label>
+        <name>CO_Dispute_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Excess Mileage Fees Due --></label>
+        <name>CO_Excess_Mileage_fees_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assessed Excess Wear and Tear --></label>
+        <name>CO_Excess_Wear_Tear_At_Inspection__c</name>
+    </fields>
+    <fields>
+        <label><!-- Excess Wear and Tear Collected Amount --></label>
+        <name>CO_Excess_Wear_Tear_Collected_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Excess Wear and Tear Fees Due --></label>
+        <name>CO_Excess_Wear_Tear_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Excess Wear and Tear Repair Amount --></label>
+        <name>CO_Excess_Wear_Tear_Repair_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Excess Wear and Tear Wavied Amount --></label>
+        <name>CO_Excess_Wear_Tear_Wavied_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Excessive Mileage Charge --></label>
+        <name>CO_Excessive_Mileage_Charge__c</name>
+    </fields>
+    <fields>
+        <label><!-- Excessive Wear Use --></label>
+        <name>CO_Excessive_Wear_Use__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fees to Collect Amount Due --></label>
+        <name>CO_Fees_to_Collect_Amount_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Delinquency Date --></label>
+        <name>CO_First_Delinquency_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fraud/Legal/Probate Flag --></label>
+        <name>CO_Fraud_Legal_Probate_Flag__c</name>
+        <picklistValues>
+            <masterLabel>F</masterLabel>
+            <translation><!-- F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L</masterLabel>
+            <translation><!-- L --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P</masterLabel>
+            <translation><!-- P --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- GEO Tax Code --></label>
+        <name>CO_GEO_Tax_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- HOST Retail Recovery Code --></label>
+        <name>CO_HRSC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hold/Term Date --></label>
+        <name>CO_Hold_Term_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Claim File Date --></label>
+        <name>CO_Insurance_Clai_File_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Claim Denied Date --></label>
+        <name>CO_Insurance_Claim_Denied_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Claim Paid Date --></label>
+        <name>CO_Insurance_Claim_Paid_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Code --></label>
+        <name>CO_Insurance_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Company Agent --></label>
+        <name>CO_Insurance_Company_Agent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Company City --></label>
+        <name>CO_Insurance_Company_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Company Email --></label>
+        <name>CO_Insurance_Company_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Company Phone --></label>
+        <name>CO_Insurance_Company_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Company State --></label>
+        <name>CO_Insurance_Company_State__c</name>
+        <picklistValues>
+            <masterLabel>AA</masterLabel>
+            <translation><!-- AA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AE</masterLabel>
+            <translation><!-- AE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AK</masterLabel>
+            <translation><!-- AK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AL</masterLabel>
+            <translation><!-- AL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP</masterLabel>
+            <translation><!-- AP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AR</masterLabel>
+            <translation><!-- AR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation><!-- AZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA</masterLabel>
+            <translation><!-- CA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CO</masterLabel>
+            <translation><!-- CO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT</masterLabel>
+            <translation><!-- CT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DC</masterLabel>
+            <translation><!-- DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DE</masterLabel>
+            <translation><!-- DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FL</masterLabel>
+            <translation><!-- FL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GA</masterLabel>
+            <translation><!-- GA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HI</masterLabel>
+            <translation><!-- HI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IA</masterLabel>
+            <translation><!-- IA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID</masterLabel>
+            <translation><!-- ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IL</masterLabel>
+            <translation><!-- IL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KS</masterLabel>
+            <translation><!-- KS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KY</masterLabel>
+            <translation><!-- KY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA</masterLabel>
+            <translation><!-- LA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MA</masterLabel>
+            <translation><!-- MA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD</masterLabel>
+            <translation><!-- MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ME</masterLabel>
+            <translation><!-- ME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MI</masterLabel>
+            <translation><!-- MI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MN</masterLabel>
+            <translation><!-- MN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation><!-- MO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MT</masterLabel>
+            <translation><!-- MT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC</masterLabel>
+            <translation><!-- NC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ND</masterLabel>
+            <translation><!-- ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NE</masterLabel>
+            <translation><!-- NE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NH</masterLabel>
+            <translation><!-- NH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NJ</masterLabel>
+            <translation><!-- NJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NM</masterLabel>
+            <translation><!-- NM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NV</masterLabel>
+            <translation><!-- NV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NY</masterLabel>
+            <translation><!-- NY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OH</masterLabel>
+            <translation><!-- OH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OK</masterLabel>
+            <translation><!-- OK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OR</masterLabel>
+            <translation><!-- OR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PA</masterLabel>
+            <translation><!-- PA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PR</masterLabel>
+            <translation><!-- PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RI</masterLabel>
+            <translation><!-- RI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation><!-- SC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation><!-- SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TN</masterLabel>
+            <translation><!-- TN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TX</masterLabel>
+            <translation><!-- TX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UT</masterLabel>
+            <translation><!-- UT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation><!-- VA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VT</masterLabel>
+            <translation><!-- VT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WA</masterLabel>
+            <translation><!-- WA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WI</masterLabel>
+            <translation><!-- WI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WV</masterLabel>
+            <translation><!-- WV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WY</masterLabel>
+            <translation><!-- WY --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Insurance Company Street --></label>
+        <name>CO_Insurance_Company_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Company Zip Code --></label>
+        <name>CO_Insurance_Company_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance GAP Processed --></label>
+        <name>CO_Insurance_GAP_Processed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interest Accrued --></label>
+        <name>CO_Interest_Accrued__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Comment Date --></label>
+        <name>CO_Last_Comment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Contact Date --></label>
+        <name>CO_Last_Contact_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Late Charges --></label>
+        <name>CO_Late_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Account Total Past Due --></label>
+        <name>CO_Lease_Account_Total_Past_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Auction Fee --></label>
+        <name>CO_Other_Auction_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Cost --></label>
+        <name>CO_Other_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Permanent Note --></label>
+        <name>CO_Permanent_Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Cost --></label>
+        <name>CO_Process_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Type --></label>
+        <name>CO_Product_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Re-Title Cost --></label>
+        <name>CO_Re_Title_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason Code --></label>
+        <name>CO_Reason_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Date --></label>
+        <name>CO_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Repo Assigned Date --></label>
+        <name>CO_Repo_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Repossessed Date --></label>
+        <name>CO_Repo_Complete_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Storage Charges --></label>
+        <name>CO_Repo_Storage_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Repossession and Transportation Cost --></label>
+        <name>CO_Repossession_and_Transportation_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Monthly Payment --></label>
+        <name>CO_Scheduled_Monthly_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Score A-1 --></label>
+        <name>CO_Score_A_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Score B-1 --></label>
+        <name>CO_Score_B_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Score C-1 --></label>
+        <name>CO_Score_C_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Score Text 1 --></label>
+        <name>CO_Score_Text_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Status Code --></label>
+        <name>CO_Status_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suit Filling Cost --></label>
+        <name>CO_Suit_Filling_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term Duration --></label>
+        <name>CO_Term_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term Frequency --></label>
+        <name>CO_Term_Frequency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Cost --></label>
+        <name>CO_Total_cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unearned Premium Refund CLDP --></label>
+        <name>CO_Unearned_Prem_Refund_CLDP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unearned Premium Refund GAP --></label>
+        <name>CO_Unearned_Prem_Refund_GAP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unearned Premium Refund MBP --></label>
+        <name>CO_Unearned_Prem_Refund_MBP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unearned Premium Refund VSA --></label>
+        <name>CO_Unearned_Prem_Refund_VSA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unpaid Lease Payments --></label>
+        <name>CO_Unpaid_Lease_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Auction Preparation Amount --></label>
+        <name>CO_Vehicle_Auction_Preparation_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Reconditioning Amount --></label>
+        <name>CO_Vehicle_Reconditioning_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Financial Account --></label>
+        <name>Financial_Account__c</name>
+        <relationshipLabel><!-- Charged Off Financial Accounts --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

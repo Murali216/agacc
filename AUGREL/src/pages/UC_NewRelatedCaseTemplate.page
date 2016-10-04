@@ -1,0 +1,490 @@
+<apex:page standardController="Case" 
+            extensions="UC_NewRelatedCaseController" 
+            standardStyleSheets="false"
+            sidebar="false"> 
+                 
+    <script src="/support/console/34.0/integration.js"/>
+    <script type='text/javascript' src='/canvas/sdk/js/publisher.js'/>
+    <apex:includeScript value="{!$Resource.jquery}"/>
+    
+    <script>
+    
+    var $ = jQuery.noConflict();
+
+        
+    function refreshFeed() {
+      
+            Sfdc.canvas.publisher.publish({name : 'publisher.refresh', payload : {feed:true}});
+        }
+    function openSubtab() {
+        //First find the ID of the primary tab to put the new subtab in
+        sforce.console.getEnclosingPrimaryTabId(openSubtab2);
+    }
+    
+    
+    var openSubtab2 = function openSubtab2(result) {
+        //Now that we have the primary tab ID, we can open a new subtab in it
+         
+        var primaryTabId = result.id;
+        sforce.console.openSubtab(primaryTabId ,caseIdToNavigate, true,
+            caseNumber, null, null , caseNumber);
+    };
+      
+      
+        function refreshPrimaryTab() {
+            sforce.console.getFocusedPrimaryTabId(refreshPrimarytab);
+        }
+        var refreshPrimarytab = function refreshPrimarytab(result){
+           var primaryTabId = result.id;
+            console.log(result);
+             sforce.console.refreshPrimaryTabById(primaryTabId, true, refreshSuccess );         
+       }
+       var refreshSuccess = function refreshSuccess(result) {
+            console.log('***'+ JSON.stringify(result, null, 4));
+        }
+        
+    var caseIdToNavigate='';
+    var caseNumber='';
+    
+    function refreshThisSubTab() {
+        sforce.console.getFocusedSubtabId(showTabId);
+        }
+
+    var showTabId = function showTabId(result) {
+        sforce.console.refreshSubtabById(result.id, true);
+    };
+    
+</script>
+    
+
+    
+    <style>
+        .inputField {
+            width : 175px;
+        }
+        
+        td {
+            padding-bottom:2px;
+        }
+
+        .labelCol {
+            text-align: right;
+            width: 40%;
+        }
+        .dataCol {
+           padding-left:5px;
+        }
+        .dataBorder {
+            padding:2px; 
+            border-width:1px; 
+            border-style:solid; 
+            border-color:#a9a9a9;
+        }
+        .button {
+                -webkit-box-shadow: none;                   -webkit-user-select: none;
+                background-color: rgb(255, 255, 255);       background-image: none;
+                border-bottom-color: rgb(136, 136, 136);    border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;            border-bottom-style: solid;
+                border-bottom-width: 1px;                   border-image-outset: 0px;er
+                border-image-repeat: stretch;               border-image-slice: 100%;
+                border-image-source: none;                  border-image-width: 1;
+                border-left-color: rgb(136, 136, 136);       border-left-style: solid;
+                border-left-width: 1px;                     border-right-color: rgb(136, 136, 136);
+                border-right-style: solid;                  border-right-width: 1px;
+                border-top-color: rgb(136, 136, 136);       border-top-left-radius: 3px;
+                border-top-right-radius: 3px;               border-top-style: solid;
+                border-top-width: 1px;                      box-shadow: none;
+                box-sizing: border-box;                     color: rgb(35, 82, 124);
+                cursor: pointer;                            display: inline-block;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 12px;                            font-weight: normal;
+                height: 22px;                               line-height: 18px;
+                margin-bottom: 0px;                         outline-color: rgb(35, 82, 124);
+                outline-style: none;                        outline-width: 0px;
+                padding-bottom: 1px;                        padding-left: 5px;
+                padding-right: 5px;                         padding-top: 1px;
+                text-align: center;                         text-decoration: none;
+                touch-action: manipulation;                 vertical-align: middle;
+                white-space: nowrap;                        width: 110px;
+            }   
+            .submitButton {
+                background-color:#89af31;
+                background-image: none;
+                background-origin: padding-box;
+                background-position: 100% 0%;
+                background-size: auto;
+                box-sizing: border-box;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+                display: inline-block;
+                font-family: Arial, Helvetica, sans-serif;
+            }  
+            
+       a {
+        color:#4990E2;
+        text-decoration:none;
+    }
+    
+    .dlg-no-title .ui-dialog-titlebar { display: none;  }
+    .ui-dialog-shadow {  box-shadow: 5px 5px 5px #888888; }
+    
+     <!--  New for R7 -->
+    #wrapper {
+         width: 100%;
+         margin: 0 auto;
+    }
+    #rightcolumn,#leftcolumn {
+        float: left;
+        width: 50%;
+    }   
+    .action:disabled {
+        font-weight:bold;
+        }
+
+    </style>
+    <div>
+    <apex:form >
+    <apex:outputPanel id="page" rendered="{!pageIsVisible}">
+    
+        <apex:outputPanel id="messages" >
+            <apex:pagemessages />
+        </apex:outputPanel>
+        
+        <div id="wrapper">
+        
+    <!---------------------------------------------------------- left column -------------------------------------------->
+    <!---------------------------------------------------------- left column -------------------------------------------->
+    <!---------------------------------------------------------- left column -------------------------------------------->
+
+            <div id="leftcolumn" style="float:left">
+
+            <table>
+               
+                <tr style="padding-top:10px">
+                    <td class="labelCol" style="padding-top:10px"> 
+                        <apex:outputLabel value="Action" style="font-weight:bold;"/>  &nbsp;
+                    </td>
+                    <td style="padding-top:10px">
+                        <apex:inputField value="{!newCase.Action__c}" html-class="inputField, action" >
+                            <apex:actionSupport event="onchange" action="{!updateAction}" rerender="page" />
+                        </apex:inputField> 
+                    </td>
+                </tr>
+              </table>
+              
+              <apex:outputPanel rendered="{!newCase.Action__c != null}">
+              <table>
+                <tr>
+                    <td class="labelCol">
+                        <apex:outputLabel value="Contact"/> &nbsp;
+                    </td>
+                    <td>
+                        <apex:selectList value="{!selectedContact}" size="1" html-class="inputField"  >
+                            <apex:selectOptions value="{!contacts}"/>
+                            <apex:actionSupport event="onchange" action="{!setShowContact}" rerender="page" />
+                        </apex:selectList>
+                    </td>
+                </tr>
+                
+                <outputPanel id='contactName' rendered="{!showContactName}">
+                    <tr>
+                        <td class="labelCol">
+                            <apex:outputLabel value="Contact Name" rendered="{!showContactName}"/>  &nbsp;
+                        </td>
+                        <td>
+                            <apex:inputField value="{!newCase.Contact_Name__c}"  html-class="inputField"  rendered="{!showContactName}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelCol">
+                            <apex:outputLabel value="{!relationshipName}" rendered="{!relationshipName !=''}"/>  &nbsp;
+                        </td>
+                        <td>
+                            <apex:inputField value="{!newCase.Relationship_Name__c}"  html-class="inputField"  rendered="{!relationshipName !=''}"/>
+                        </td>
+                    </tr>                   
+                </outputPanel>
+                
+                <tr>                    
+                    <td class="labelCol">
+                        <apex:outputLabel value="Non-Phone Call Service Channel"/>  
+                    </td>
+                    <td>
+                    <apex:selectRadio value="{!ServiceChannel}" style="width:250px;height:10px" layout="pageDirection">
+                            <apex:selectOption itemValue="Customer Correspondence" itemlabel="Customer Correspondence"/>
+                            <apex:selectOption itemValue="Action Request" itemlabel="Action Request"/>
+                           <apex:actionSupport event="onclick" action="{!ServiceChannel}" rerender="page" />
+                    </apex:selectRadio>
+                     
+                    </td>
+                </tr>
+                <tr/> 
+                <tr> 
+                    <td class="labelCol">
+                        <apex:outputLabel value="Category"/> 
+                    </td>
+                    <td>
+                        <apex:outputPanel id="category">
+                            <apex:inputField value="{!newCase.Category__c}"  html-class="inputField">   <br/><br/>
+                                <apex:actionSupport event="onchange" action="{!checkRecordType}" rerender="category,topic" />
+                            </apex:inputField>
+                        </apex:outputPanel>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="labelCol">
+                        <apex:outputText value="Topic" /> 
+                    </td>
+                    <td>
+                        <apex:outputPanel id="topic">
+                            <apex:inputField value="{!newCase.Service_Request_Type__c}"  html-class="inputField"  style="vertical-align: text-top;">
+                                <apex:actionSupport event="onchange" action="{!getFields}" rerender="page" />
+                            </apex:inputField>
+                        </apex:outputPanel>
+                    </td>
+                </tr>
+              </table>  
+              </apex:outputPanel>
+        
+            </div>   <!-- End Left Column -->
+            
+   <!-------------------------------------------- right column ------------------------------------------------->
+   <!-------------------------------------------- right column ------------------------------------------------->
+   <!-------------------------------------------- right column ------------------------------------------------->
+   
+            <div id="rightcolumn" style="float:left">
+
+            <apex:outputPanel id="fieldSet" rendered="{!newCase.Action__c != null}">    
+            
+                  <!-----------------------------  FIELD SETS  ----------------------->
+                                  
+                  <!------------ FA FIELDS ------------->
+                  
+                  <!------- show Account Status for "Payoff Quote"  ---------->
+                  <apex:outputPanel rendered="{!newcase.Service_Request_Type__c == 'Payoff Quote'}">
+                    <table style="width:100%">
+                     <tr>
+                        <td class="labelCol">
+                            <apex:outputLabel value="Account Status"/>  
+                        </td>
+                        <td class="dataCol">
+                            <span>{!accountStatus} </span>
+                        </td>
+                     </tr>
+                    </table>
+                  </apex:outputPanel>
+                  
+                <table style="width:100%">
+                  <apex:repeat value="{!faFields}" var="f">
+                     <tr>
+                        <td class="labelCol">
+                            <!-- Change label of Effective Date to Process Date -->
+                            <apex:outputLabel value="{! if(f.Label == 'Effective Date','Process Date', f.Label)}"/>  
+                        </td>
+                        <td class="dataCol">
+                    
+                            <apex:outputField value="{!fa[f.fieldPath]}" rendered="{!!(f.fieldPath == 'Type_Code_Description__c' && fa[f.fieldPath]=='Actuarial')}"/>
+                            <!-- show Type Code Description Red/Bold....need a better way to do this -->
+                            <span style="color:#ff0000; font-weight:bold">
+                                <apex:outputField value="{!fa[f.fieldPath]}" rendered="{!f.fieldPath == 'Type_Code_Description__c' && fa[f.fieldPath]=='Actuarial'}"/>
+                            </span>
+                        </td>
+                      </tr>
+                  </apex:repeat>
+                  <!------------ END FA FIELDS ------------->
+                
+                  <!------------ CASE FIELDS ------------->
+                  <apex:repeat value="{!fields}" var="f">
+                     <tr>
+                        <td class="labelCol">
+                            <apex:outputLabel value="{!f.Label}"/>  
+                        </td>
+                        <td class="dataCol">
+                            <apex:inputField value="{!newCase[f.fieldPath]}" >
+                                  <apex:actionSupport event="onchange" action="{!clearMessage}" rerender="page"  />
+                            </apex:inputField>
+                        </td>
+                      </tr>
+                  </apex:repeat>
+                  <!------------ END CASE FIELDS ------------->
+                 
+                  <!------------ FAC FIELDS ------------->
+                  <apex:repeat value="{!facFields}" var="f">
+                     <tr style="{!if(f.fieldPath == 'Address_Special_Garage__c','display:block','display:none')}">
+                        <td class="labelCol">
+                         <span style="color:#006cb5; font-weight:bold"> 
+                                <apex:outputLabel value="Garage Address" />
+                         </span>
+                         </td>                   
+                     </tr>
+                     <tr style="{!if(f.fieldPath == 'Address_Special_BillTo__c','display:block','display:none')}">
+                        <td class="labelCol">
+                          <span style="color:#006cb5;font-weight:bold"> 
+                                <apex:outputLabel value="Billing Address" />
+                         </span>
+                         </td>                   
+                     </tr>
+                     
+                     <tr>
+                        <td class="labelCol">
+                             <apex:outputLabel value="{!f.Label}"/>  
+                        </td>
+                        <td class="dataCol" style="{!if(facReadOnly,'display:block','display:none')}">                          
+                                 <apex:outputField value="{!fac[f.fieldPath]}" />
+                        </td>
+                        <td class="dataCol" style="{!if(!facReadOnly,'display:block','display:none')}">                         
+                                 <apex:inputField value="{!fac[f.fieldPath]}">
+                                    <apex:actionSupport event="onchange" action="{!clearMessage}" rerender="messages" />
+                                 </apex:inputField>
+                        </td>
+                      </tr>
+                  </apex:repeat>
+                  <!------------ END FAC FIELDS ------------->
+                  
+            <!------------ Send To Address Fields ------------->
+    
+                        <tr>
+                        <td class="labelCol">
+                                <apex:outputLabel value="{!$ObjectType.Case.Fields.Send_To__c.Label}" style="{!if(showSendToAddress,'display:block','display:none')}"/>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!newCase.Send_To__c}" style="{!if(showSendToAddress,'display:block','display:none')}">
+                                      <apex:actionSupport event="onchange" action="{!SendToUpdate}" rerender="page" />
+                                </apex:inputField>
+                            </td>               
+                        </tr>
+                        <tr>
+                            <td class="labelCol">
+                                <apex:outputLabel value="{!$ObjectType.Case.Fields.Send_to_Name_Address__c.Label}" style="{!if(showSendToAddress,'display:block','display:none')}"/>
+                            </td>
+                            <td>
+                                <apex:inputTextArea value="{!newCase.Send_to_Name_Address__c}" html-class="inputField" rows="4" cols="60" style="{!if(showSendToAddress,'display:block','display:none')}"/>
+                            </td>
+                        </tr>
+                      
+                <!------------ End Send To Address Fields ------------->
+                
+             
+              <!------------ Unbound FIELDS ------------->
+              <apex:repeat value="{!unboundF}" var="unbound">                    
+                 <tr>
+                    <td class="labelCol">
+                         <apex:outputLabel value="{!unbound.thisUF.Display_Label__c}"/>  
+                    </td>
+                    <td class="dataCol">                            
+                             <apex:inputText value="{!unbound.UserInputValue}">
+                                <apex:actionSupport event="onchange" action="{!clearMessage}" rerender="messages" />
+                             </apex:inputText>
+                    </td>
+                  </tr>
+              </apex:repeat>
+                <!------------ End Unbound FIELDS ------------->
+                   
+                <!---------------------- additional fields with conditional rendering ------------------> 
+
+                    <tr style="{!if(newCase.Requesting_Location__c == 'DSSO','','display:none')}">
+                  
+                        <td class="labelCol">
+                            <apex:outputLabel value="Name"/>  
+                        </td>
+                        <td>
+                             <apex:inputField value="{!newCase.Name_Goodwill__c}"  html-class="inputField" />
+                        </td>
+                    </tr>
+                    <tr style="{!if(newCase.Requesting_Location__c == 'DSSO','','display:none')}">
+                        <td class="labelCol">
+                            <apex:outputLabel value="Title"/> 
+                        </td>
+                        <td>
+                            <apex:inputField value="{!newCase.Title_DSSO__c}"  html-class="inputField" />
+                        </td>
+                    </tr>
+
+                <!---------------------- end additional fields with conditional rendering ---------------> 
+                    
+                    <tr>
+                        <td class="labelCol">
+                            <apex:outputLabel value="Description"/>  &nbsp;
+                        </td>
+                        <td>
+                        <apex:inputTextArea value="{!newCase.description}"  html-class="inputField" rows="4" cols="60"  >
+                                <apex:actionSupport event="onchange" action="{!clearMessage}" rerender="messages" />
+                        </apex:inputTextArea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelCol" >
+                            <apex:outputLabel value="Escalation / Transfer"/>  &nbsp;
+                        </td>               
+        
+                        <td>
+                            <apex:selectList value="{!selectedEscalation}" size="1" html-class="inputField"  >
+                                <apex:selectOptions value="{!escalationOptions}"/>
+                                <apex:actionSupport event="onchange" action="{!setEscalationType}" rerender="page" />
+                            </apex:selectList>
+                        </td>
+                    </tr>
+                    <tr>            
+                        <td class="labelCol" >
+                             <apex:outputLabel value="{!selectedEscalation}"/>
+                        </td>
+                        <td>
+                          <apex:outputPanel rendered="{!selectedEscalation == 'Escalate To'}">
+                            <apex:inputField value="{!newCase.Escalated_To__c}"  html-class="inputField"  />
+                          </apex:outputPanel>
+                         
+                          <apex:outputPanel rendered="{!selectedEscalation == 'Transfer To'}">
+                            <apex:inputField value="{!newCase.Transfer_To__c}"  html-class="inputField"  />
+                          </apex:outputPanel>
+                        </td>
+                    </tr>
+                 </table>
+                 
+                 
+                </apex:outputPanel>  <!-- End Field Sets -->
+                
+            </div> <!-- End Right Column -->
+        </div>     <!--  End Wrapper -->
+        
+        <!-------------------------------------- Save / Cancel  ----------------------------------------->  
+        <apex:outputPanel rendered="{!newCase.Action__c != null}">
+            <table style="width:100%">
+              <tr>
+                <td/>
+                <td style='float:right'>
+                 <br/>
+                 <input  value="Cancel"  class="button" title="Cancel Case" type="button"
+                            onclick="cancelCase();"/>
+                 </td>
+                <td>
+                
+                 <br/>      
+                 <input  value="Create Case"    class="button submitButton"    title="Create Case & Open Case Detail Page" type="button"
+                          onclick="createCaseAndNavigate();" />
+                 </td>
+                <td/>
+                </tr>     
+             </table>
+        </apex:outputPanel>
+        
+        
+        
+        
+
+    </apex:outputPanel>       
+    <apex:actionFunction name="cancelCase" action="{!cancelCase}" rerender="page" oncomplete="refreshFeed();"/>             
+    <apex:actionFunction name="createCaseAndNavigate" action="{!createCase}"  rerender="page" status="sts" 
+        oncomplete="if({!saveSuccessful}) {refreshFeed();  refreshThisSubTab(); caseIdToNavigate='/{!savedCase.Id}'; caseNumber='{!savedCase.caseNumber}';openSubtab();}; refreshPrimaryTab();"/>
+      <apex:actionstatus id="sts">
+        <apex:facet name="start">
+            <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb; height:150%;opacity:0.65;width:100%;">
+                <div class="waitingHolder" style="top: 130px; width: 91px;">
+                <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                <span class="waitingDescription">Please Wait...</span>
+                </div>
+            </div>
+        </apex:facet>
+     </apex:actionstatus>   
+     </apex:form>
+    </div>
+</apex:page>

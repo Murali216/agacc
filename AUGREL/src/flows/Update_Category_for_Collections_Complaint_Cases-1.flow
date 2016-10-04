@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>myVariable_waitStartTimeAssignment</name>
+        <label>myVariable_waitStartTimeAssignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myDecision</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>myDecision</name>
+        <label>Primary Decision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Complaint</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Source_System_Created_By__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SFDC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Collections Complaint Case</label>
+        </rules>
+    </decisions>
+    <description>Update Action Category for Collections Console Complaint Cases - This is done to keep STARS in sync</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>&apos;Log Complaint&apos;
+
+</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A2_Action_c</name>
+        <dataType>String</dataType>
+        <expression>&apos;Log Complaint&apos;</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>CASE([Case].Service_Request_Type__c, 
+&apos;CSC Customer Experience&apos;, &apos;Customer Experience&apos;,
+&apos;Dealer&apos;, &apos;Customer Experience&apos;,
+&apos;Dialer&apos;, &apos;Customer Experience&apos;,
+&apos;IVR&apos;, &apos;Customer Experience&apos;,
+&apos;Marketing&apos;, &apos;Customer Experience&apos;,
+&apos;Mobile App&apos;, &apos;Customer Experience&apos;,
+&apos;Vehicle&apos;, &apos;Customer Experience&apos;,
+&apos;Vendor&apos;, &apos;Customer Experience&apos;,
+&apos;Website&apos;, &apos;Customer Experience&apos;,
+&apos;Other Complaint&apos;, &apos;Customer Experience&apos;,
+&apos;Do Not Call&apos;, &apos;Legal&apos;,
+&apos;Fraud/ID Theft&apos;, &apos;Legal&apos;,
+&apos;Privacy/Information Security&apos;, &apos;Legal&apos;,
+&apos;EWU/Disposition Fee&apos;, &apos;Maturity&apos;,
+&apos;Payoff Issue&apos;, &apos;Maturity&apos;,
+&apos;Title Closed&apos;, &apos;Maturity&apos;,
+&apos;Billing Statement&apos;, &apos;Finance&apos;,
+&apos;Credit Dispute&apos;, &apos;Finance&apos;,
+&apos;Address &amp; Phone&apos;, &apos;Finance&apos;,
+&apos;Extension/Deferral&apos;, &apos;Finance&apos;,
+&apos;Late Charge&apos;, &apos;Finance&apos;,
+&apos;Optional Product&apos;, &apos;Finance&apos;,
+&apos;Payments&apos;, &apos;Finance&apos;,
+&apos;PPT/Sales Tax&apos;, &apos;Finance&apos;,
+&apos;Refunds&apos;, &apos;Finance&apos;,
+&apos;Title Open&apos;, &apos;Finance&apos;,
+&apos;Bankruptcy (Not Active)&apos;, &apos;Collections&apos;,
+&apos;Charge Off&apos;,&apos;Collections&apos;,
+&apos;Collections/Repo&apos;,&apos;Collections&apos;,
+&apos;Redemption/Reinstatement&apos;,&apos;Collections&apos;,
+&apos;Customer Experience&apos;)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_3_myRule_1_A1_Category_c</name>
+        <dataType>String</dataType>
+        <expression>CASE({!myVariable_current.Service_Request_Type__c}, 
+&apos;CSC Customer Experience&apos;, &apos;Customer Experience&apos;,
+&apos;Dealer&apos;, &apos;Customer Experience&apos;,
+&apos;Dialer&apos;, &apos;Customer Experience&apos;,
+&apos;IVR&apos;, &apos;Customer Experience&apos;,
+&apos;Marketing&apos;, &apos;Customer Experience&apos;,
+&apos;Mobile App&apos;, &apos;Customer Experience&apos;,
+&apos;Vehicle&apos;, &apos;Customer Experience&apos;,
+&apos;Vendor&apos;, &apos;Customer Experience&apos;,
+&apos;Website&apos;, &apos;Customer Experience&apos;,
+&apos;Other Complaint&apos;, &apos;Customer Experience&apos;,
+&apos;Do Not Call&apos;, &apos;Legal&apos;,
+&apos;Fraud/ID Theft&apos;, &apos;Legal&apos;,
+&apos;Privacy/Information Security&apos;, &apos;Legal&apos;,
+&apos;EWU/Disposition Fee&apos;, &apos;Maturity&apos;,
+&apos;Payoff Issue&apos;, &apos;Maturity&apos;,
+&apos;Title Closed&apos;, &apos;Maturity&apos;,
+&apos;Billing Statement&apos;, &apos;Finance&apos;,
+&apos;Credit Dispute&apos;, &apos;Finance&apos;,
+&apos;Address &amp; Phone&apos;, &apos;Finance&apos;,
+&apos;Extension/Deferral&apos;, &apos;Finance&apos;,
+&apos;Late Charge&apos;, &apos;Finance&apos;,
+&apos;Optional Product&apos;, &apos;Finance&apos;,
+&apos;Payments&apos;, &apos;Finance&apos;,
+&apos;PPT/Sales Tax&apos;, &apos;Finance&apos;,
+&apos;Refunds&apos;, &apos;Finance&apos;,
+&apos;Title Open&apos;, &apos;Finance&apos;,
+&apos;Bankruptcy (Not Active)&apos;, &apos;Collections&apos;,
+&apos;Charge Off&apos;,&apos;Collections&apos;,
+&apos;Collections/Repo&apos;,&apos;Collections&apos;,
+&apos;Redemption/Reinstatement&apos;,&apos;Collections&apos;,
+&apos;Customer Experience&apos;)</expression>
+    </formulas>
+    <interviewLabel>Update_Category_for_Collections_Complaint_Cases-4_Case</interviewLabel>
+    <label>Update Action Category for Collections Console Complaint Cases</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Case</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onCreateOnly</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Case]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Update category</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_1_A2</targetReference>
+        </connector>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Category</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Category__c</field>
+            <value>
+                <elementReference>formula_3_myRule_1_A1_Category_c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Case]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A2</name>
+        <label>Update Action</label>
+        <locationX>100</locationX>
+        <locationY>300</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Action</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Action__c</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A2_Action_c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_waitStartTimeVariable</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDateTime</elementReference>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Activity.Collection_Activity_Promise_Amount_1__c:SUM + Activity.Collection_Activity_Promise_Amount_2__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total Promised</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>RowCount</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>RPC Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>(Activity.Collection_Activity_Promise_Amount_1__c:SUM + Activity.Collection_Activity_Promise_Amount_2__c:SUM)/RowCount</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Average Collected</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_38628758</developerName>
+        <masterLabel>People</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>ASSIGNED</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Jacqueline Snoddy</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Elom Kouessan</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Perla Isla Ramirez</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Humphrey Suhbusi</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Amanda Peterson</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Jamie Tucker</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cherena Wilding</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Kaylor Phillips</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Johnnie Richards</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Valeisa Brown</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Jicara Brown</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Mecia Crawford</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Anita Ntambo</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Marcus Howard</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Bryan Scott</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Antoinette Traynham</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Justin Baker</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Jean young</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Mathew Wingate</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Jr. David Ross</sourceValue>
+            </sourceValues>
+            <value>Agents</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Kim Peterson</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Adrian Hampton</sourceValue>
+            </sourceValues>
+            <value>Agents1</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_79805303</developerName>
+        <masterLabel>Right Party Contacts</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>SUBJECT</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>XMNP - PHONED CX M#, NO PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XMPE - PHONED CX M#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XMPW - PHONED CX M#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XMPP - PHONED CX M#, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XMPQ - PHONED CX M#, QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBNP - PHONED CX BUS, NO PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPP - PHONED CX BUS, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPW - PHONED CX B#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPE - PHONED CX B#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPQ - PHONED CX B#,QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRNP - PHONED CX RES, NO PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPP - PHONED CX RES, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPE - PHONED CX R#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPQ - PHONED CX R#,QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPW - PHONED CX R#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>EXTN - EXTENSION GRANTED</sourceValue>
+            </sourceValues>
+            <value>RPC</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>CMNP - PHONED CS M#, NO PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CMPQ - PHONED CS M#,QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CMPE - PHONED CS M#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CMPP - PHONED CS M#, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CMPW - PHONED CS M#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBNP - PHONED BUS, NO PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPE - PHONED B#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPW - PHONED B#, PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPQ - PHONED B#, QUICK COLL PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRNP - PHONED RES, NO PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPE - PHONED R#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPW - PHONED R#, PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPQ - PHONED R#, QUICK COLL PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPP - PHONED RES, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPP - PHONED BUS, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <value>RPC1</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA2</column>
+        </chartSummaries>
+        <chartType>VerticalColumn</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>ASSIGNED</groupingColumn>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>Activity.Collection_Activity_Code__c</field>
+    </columns>
+    <columns>
+        <field>DESCRIPTION</field>
+    </columns>
+    <columns>
+        <field>Activity.Collection_Activity_Promise_Amount_1__c</field>
+    </columns>
+    <columns>
+        <field>Activity.Collection_Activity_Promise_Amount_2__c</field>
+    </columns>
+    <columns>
+        <field>Activity.Source_Created_Date__c</field>
+    </columns>
+    <description>Pulls all of the RPC&apos;s for team Selene/Robert for the day</description>
+    <filter>
+        <criteriaItems>
+            <column>BucketField_79805303</column>
+            <operator>equals</operator>
+            <value>RPC,RPC1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>BucketField_38628758</column>
+            <operator>equals</operator>
+            <value>Agents,Agents1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>ASSIGNED</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>Team Selene/Robert Daily RPC report</name>
+    <params>
+        <name>closed</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>te</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Activity.Source_Created_Date__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

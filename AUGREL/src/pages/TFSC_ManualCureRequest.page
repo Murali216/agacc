@@ -1,0 +1,11 @@
+<apex:page standardController="Financial_Account__c" showHeader="false" sidebar="false">
+  
+    <apex:variable value="{!Financial_Account__c}" var="fa"/>
+    
+    <flow:interview name="TFSC_ManualCure" finishLocation="/apex/TFSC_CloseTabAndRefreshNotes?id={!fa.Id}">
+       <apex:param name="FinancialAccountId" value="{!fa.Id}"/>
+        <apex:param name="UserFirstName" value="{!$User.FirstName} "/> 
+        <apex:param name="UserLastName" value="{!$User.LastName} "/>
+    </flow:interview>
+    
+</apex:page>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Temp Interaction</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Temp Interactions</value>
+    </caseValues>
+    <fields>
+        <label><!-- ANI --></label>
+        <name>ANI__c</name>
+    </fields>
+    <fields>
+        <label><!-- CONN ID --></label>
+        <name>CONN_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interaction Type --></label>
+        <name>Interaction_Type__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

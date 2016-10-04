@@ -1,0 +1,113 @@
+<apex:page controller="TFSC_AutoLoyalty" id="RefiPitch"
+standardStyleSheets="false"
+            sidebar="false"> 
+
+ <apex:includeScript value="{!URLFor($Resource.datatables_1_10_9, '/DataTables-1.10.9/js/jquery.dataTables.min.js') }"/>
+    <apex:includeScript value="{!URLFor($Resource.datatables_1_10_9, '/DataTables-1.10.9/js/dataTables.bootstrap.min.js') }"/>
+    <link rel="stylesheet" href="{!URLFor($Resource.datatables_1_10_9,'/DataTables-1.10.9/css/dataTables.bootstrap.min.css')}"/>         
+    <link rel="stylesheet" href="{!URLFor($Resource.datatables_1_10_9,'/Bootstrap-3.3.5/css/bootstrap.min.css')}"/>     
+   
+<script>
+      $(document).ready( function () {
+          $('#dataTable').DataTable({
+            "order": [ 3, 'desc' ],
+            "columnDefs": [ { "targets": 3, "visible": false } ],
+                    "columns": [
+                { "width": "auto" },
+                { "width": "40%" },
+                { "width": "40%" },
+                { "width": "auto" },
+                null],
+             "lengthMenu": [10 ],
+               "language": {
+                 "search": '<div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>'
+                }
+          
+          });
+          
+          $("#dataTable_length").css({"font-size" : "12px", "line-height":"12px","padding-top":"10px"});
+          $("#dataTable_length").children().css({"display":"none"});
+          $("#dataTable_length").append(
+             "<label style='font-size:16px; color:#54698d;'>Recent Cases / Activities</label>" );
+          $("#dataTable_length").addClass("pull-left");
+          
+          $("#dataTable_filter").css({"font-size" : "12px", "line-height":"12px", "width": "165px"});
+          $("#dataTable_filter").addClass("pull-right");
+          $("#dataTable_filter").find("input").css({"width": "125px"});
+        
+      });
+      
+  </script>
+ 
+ <apex:tabPanel >
+ 
+ <apex:tab label="Auto Loyalty" name="candd-top-tabname1" id="candd-top-tabid1" styleClass="topTabClass">
+            <div class="canddClass">
+            <flow:interview name="Refinance_Pitch_Eligiblity_Auto_Loyalty" finishLocation="/apex/TFS_Auto_Loyalty_Universal_Console?Id={!financialAccount.id}" >
+        <apex:param name="Refi_Pitch_Eligible_Flag" value="{!financialAccount.Refi_Pitch_Eligible_Flag__c}"/>
+        <apex:param name="Refi_Pitch_Treatment" value="{!financialAccount.Refi_Pitch_Treatment__c}"/>
+        <apex:param name="Faid" value="{!financialAccountId}"/>
+        <apex:param name="servicegroup" value="{!sergroup}"/>
+        <apex:param name="Offer" value="{!offer}"/>
+    </flow:interview>
+    
+    
+        
+        
+        </div>
+       </apex:tab>
+       
+       
+          <apex:tab label="Next Best Action" name="candd-top-tabnameNBA" id="candd-top-tabidNBA" styleClass="topTabClass">
+            <div style="width:100%">   
+           
+ 
+    <table id="dataTable" class="table table-striped table-bordered display compact" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th> 
+                <apex:outputText value="Offer" html-class="title"/>
+            </th>
+            <th> 
+                <apex:outputText value="Description" html-class="title"/>
+            </th>
+             <th> 
+                <apex:outputText value="Certificate Number" html-class="title"/>
+            </th>
+            <th> 
+                <apex:outputText value="Eligible Date" html-class="title"/>
+            </th>
+            
+            
+            <th/>
+        </tr>
+    </thead>
+    <apex:repeat value="{!dataList}" var="dl">
+       
+            <tr style="height:40px">
+                <td>
+                    <apex:outputText value="{!dl.name}" title="{!dl.name}"/>
+                </td> 
+                <td>
+                    <apex:outputText value="{!dl.description}" title="{!dl.description}"/>
+                </td> 
+                <td>
+                    <apex:outputText value="{!dl.Certificate}" />
+                </td> 
+                <td>
+                    <apex:outputText value="{!dl.Eligible_Date}" />
+                </td>             
+                
+                
+
+            </tr>
+        
+            
+    </apex:repeat>
+       
+    </table>
+  </div>
+       </apex:tab>
+ </apex:tabPanel>
+        
+</apex:page>

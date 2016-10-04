@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Information on all charged off accounts</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CO_Account_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SRC: Retail
+INT: Y
+Trans: Y
+BU: Charge Off Accounts Servicing
+FD: Account Number</description>
+        <externalId>true</externalId>
+        <label>Account Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Active_Misc_Rec__c</fullName>
+        <description>SRC: Pending
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Active Misc Rec.</description>
+        <externalId>false</externalId>
+        <label>Active Misc Rec</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Amount_Past_Due__c</fullName>
+        <description>SRC: HOST
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: User defined numeric Amount 1</description>
+        <externalId>false</externalId>
+        <label>Past Due Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Associated_Cost__c</fullName>
+        <description>SRC: Retail
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: &quot;Total of all costs as part of balance . Any other costs as part of the balance owing&quot;</description>
+        <externalId>false</externalId>
+        <label>Associated Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Auction_House_Fee__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Fees charged by auction House for sale of vehicle</description>
+        <externalId>false</externalId>
+        <label>Auction House Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Branch_Number__c</fullName>
+        <description>SRC: Retail
+INT: Y
+Trans: Y
+BU: RMS
+FD: Branch no (DSSO)  for collector from Retail/Collections</description>
+        <externalId>false</externalId>
+        <label>Branch Number</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Charged_Off_Amount__c</fullName>
+        <description>SRC: Retail
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing 
+FD: CHARGE-OFF AMOUNT</description>
+        <externalId>false</externalId>
+        <label>Charged Off Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Closed_Date__c</fullName>
+        <description>SRC: RMS / SFDC
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing 
+FD: Date Closed - Used for Credit Bureau Reporting</description>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Comment_Other_Amount__c</fullName>
+        <description>SRC: Pending 
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: LAST COMMENT DATE</description>
+        <externalId>false</externalId>
+        <label>Comment &quot;Other&quot; Amount</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Commison_Rate__c</fullName>
+        <description>SRC: RMS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Agency Commision rate</description>
+        <externalId>false</externalId>
+        <label>Agency Commission Rate</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>CO_Compliance_Condition_Code__c</fullName>
+        <description>SRC: RMS / SFDC
+INT: Y 
+Trans: Y 
+BU: Charged Off Accounts Servicing 
+FD: Compliance Condition Code</description>
+        <externalId>false</externalId>
+        <label>Compliance Condition Code</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Credit_Bureau_Report_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SRC: RMS
+INT: Y 
+Trans: Y 
+BU: Charged Off Accounts Servicing 
+FD: Credit Bureau Report  Flag</description>
+        <externalId>false</externalId>
+        <label>Credit Bureau Report  Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CO_Credit_Score__c</fullName>
+        <description>SRC: SMG3
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: Credit/Recovery Score</description>
+        <externalId>false</externalId>
+        <label>Credit / Recovery Score</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Date__c</fullName>
+        <description>SRC: Collections
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Date the account entered charge off status (Charged off Date)</description>
+        <externalId>false</externalId>
+        <label>Charged Off Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Dealer_Rate__c</fullName>
+        <description>SRC: Retail
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Retail Dealer Rate used for 1099C Identifier</description>
+        <externalId>false</externalId>
+        <label>Dealer Rate</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Dispute_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is the account in a Dispute Status (Y=Yes, N=No, Filler=Unknown)</description>
+        <externalId>false</externalId>
+        <label>Dispute Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CO_Excess_Mileage_fees_Due__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Excess Mileage fees due</description>
+        <externalId>false</externalId>
+        <label>Excess Mileage Fees Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Excess_Wear_Tear_At_Inspection__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Assessed Excess Wear &amp; Tear during Inspection</description>
+        <externalId>false</externalId>
+        <label>Assessed Excess Wear and Tear</label>
+        <length>7</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Excess_Wear_Tear_Collected_Amount__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Excess Wear &amp; Tear amount collected
+(For viewing purpose only)</description>
+        <externalId>false</externalId>
+        <label>Excess Wear and Tear Collected Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Excess_Wear_Tear_Fee__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Excess Wear and Tear fees due</description>
+        <externalId>false</externalId>
+        <label>Excess Wear and Tear Fees Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Excess_Wear_Tear_Repair_Amount__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Excess Wear &amp; Tear Repairs Total amount (For viewing purpose only)</description>
+        <externalId>false</externalId>
+        <label>Excess Wear and Tear Repair Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Excess_Wear_Tear_Wavied_Amount__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Excess Wear and Tear amount waived
+(For viewing purpose only)</description>
+        <externalId>false</externalId>
+        <label>Excess Wear and Tear Wavied Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Excessive_Mileage_Charge__c</fullName>
+        <description>SRC: Pending
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Excessive Mileage Charge</description>
+        <externalId>false</externalId>
+        <label>Excessive Mileage Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Excessive_Wear_Use__c</fullName>
+        <description>SRC: Pending
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Excessive Wear and Use</description>
+        <externalId>false</externalId>
+        <label>Excessive Wear Use</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Fees_to_Collect_Amount_Due__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Fees incurred to collect amount due.</description>
+        <externalId>false</externalId>
+        <label>Fees to Collect Amount Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_First_Delinquency_Date__c</fullName>
+        <description>SRC: HOST
+INT: Y 
+Trans: Y 
+BU: Charged Off Accounts Servicing 
+FD: Date of First Delinquency</description>
+        <externalId>false</externalId>
+        <label>First Delinquency Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Fraud_Legal_Probate_Flag__c</fullName>
+        <description>SRC: HOST
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: New Fraud/Legal code (F or L)</description>
+        <externalId>false</externalId>
+        <label>Fraud/Legal/Probate Flag</label>
+        <picklist>
+            <picklistValues>
+                <fullName>F</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>L</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CO_GEO_Tax_Code__c</fullName>
+        <description>SRC: Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Tax GEO code for lease</description>
+        <externalId>false</externalId>
+        <label>GEO Tax Code</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_HRSC__c</fullName>
+        <description>SRC: Retail
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Host Retail Recovery Code.  This will be updated by RMS to Host when an account is closed or needs to be inactivated in Host.</description>
+        <externalId>false</externalId>
+        <label>HOST Retail Recovery Code</label>
+        <length>16</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Hold_Term_Date__c</fullName>
+        <description>SRC: Retail/Lease
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Date account stopped accruing Interest
+Retail - Take Hold Date
+Lease - Take Term Date</description>
+        <externalId>false</externalId>
+        <label>Hold/Term Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Clai_File_Date__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Date Insurance claim Filed</description>
+        <externalId>false</externalId>
+        <label>Insurance Claim File Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Claim_Denied_Date__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Date Insurance Claim was Denied</description>
+        <externalId>false</externalId>
+        <label>Insurance Claim Denied Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Claim_Paid_Date__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Date Insurance Claim was Paid</description>
+        <externalId>false</externalId>
+        <label>Insurance Claim Paid Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Code__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Code</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Company_Agent__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Company Agent</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Company_City__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Company City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Company_Email__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Company Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Company_Phone__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Company Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Company_State__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Company State</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ID</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ME</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ND</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Company_Street__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Company Street</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_Company_Zip_Code__c</fullName>
+        <description>SRC: ITS / Retail / Lease
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance code which Id&apos;s the insurance co (flag in #206 will also be set)</description>
+        <externalId>false</externalId>
+        <label>Insurance Company Zip Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Insurance_GAP_Processed__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Insurance proceeds GAP</description>
+        <externalId>false</externalId>
+        <label>Insurance GAP Processed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Interest_Accrued__c</fullName>
+        <description>SRC: Retail
+INT: Y
+Trans: N
+BU: Charge Off Accounts Servicing
+FD: Interest accrued at time of adding account to RMS</description>
+        <externalId>false</externalId>
+        <label>Interest Accrued</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Last_Comment_Date__c</fullName>
+        <description>SRC: RMS
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: LAST COMMENT DATE</description>
+        <externalId>false</externalId>
+        <label>Last Comment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Last_Contact_Date__c</fullName>
+        <description>SRC: Collections
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Last date customer was Called</description>
+        <externalId>false</externalId>
+        <label>Last Contact Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Late_Charges__c</fullName>
+        <description>SRC: HOST
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: User defined numeric Amount 2</description>
+        <externalId>false</externalId>
+        <label>Late Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Lease_Account_Total_Past_Due__c</fullName>
+        <description>SRC: Retail / Lease 
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing
+FD: Lease Account Total Past Due</description>
+        <externalId>false</externalId>
+        <label>Lease Account Total Past Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Other_Auction_Fee__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Amount of &quot;Other&quot; Fees incurred during Auction and Repo not mentioned earlier</description>
+        <externalId>false</externalId>
+        <label>Other Auction Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Other_Cost__c</fullName>
+        <description>Other Cost</description>
+        <externalId>false</externalId>
+        <label>Other Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Permanent_Note__c</fullName>
+        <description>SRC: RMS / Salesforce 
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing
+FD: OTHER OBLIGATIONS, OWN/RENT CODE, RECOVERY/CREDIT SCORE. Collection Perm Notes</description>
+        <externalId>false</externalId>
+        <label>Permanent Note</label>
+        <length>120</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Process_Cost__c</fullName>
+        <description>Process Cost</description>
+        <externalId>false</externalId>
+        <label>Process Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Product_Type__c</fullName>
+        <description>SRC: Pending
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: LOAN TYPE CODE. Account Type, Lease or Retail
+In RMS this is known as Product Code.</description>
+        <externalId>false</externalId>
+        <label>Product Type</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Re_Title_Cost__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Fee charged to obtain a new title or registration for the Car to be Repo&apos;d or sold at Auction.</description>
+        <externalId>false</externalId>
+        <label>Re-Title Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Reason_Code__c</fullName>
+        <description>SRC: Retail
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Charge Off Reason Code (Number)</description>
+        <externalId>false</externalId>
+        <label>Reason Code</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Received_Date__c</fullName>
+        <description>SRC: RMS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: C/O account received date</description>
+        <externalId>false</externalId>
+        <label>Received Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Repo_Assigned_Date__c</fullName>
+        <description>SRC: Pending
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Repo Assign Date
+Date we sent out the notice to get the vehicle repo&apos;d.</description>
+        <externalId>false</externalId>
+        <label>Repo Assigned Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Repo_Complete_Date__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Date car is repossessed</description>
+        <externalId>false</externalId>
+        <label>Repossessed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CO_Repo_Storage_Charges__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Fee charged by the auction/Repo agency for storing vehicle after it is Repo&apos;d</description>
+        <externalId>false</externalId>
+        <label>Vehicle Storage Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Repossession_and_Transportation_Cost__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Fee charged for Repossession and Transportation of the car to the Auction.</description>
+        <externalId>false</externalId>
+        <label>Repossession and Transportation Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Scheduled_Monthly_Payment__c</fullName>
+        <description>SRC: RMS / SFDC
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing 
+FD: Scheduled Monthly Payment Amount</description>
+        <externalId>false</externalId>
+        <label>Scheduled Monthly Payment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Score_A_1__c</fullName>
+        <description>SRC: SMG3
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: Score A-1</description>
+        <externalId>false</externalId>
+        <label>Score A-1</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Score_B_1__c</fullName>
+        <description>SRC: SMG3
+INT: Y 
+Trans: Y 
+BU: Charged Off Accounts Servicing 
+FD: Score B-1</description>
+        <externalId>false</externalId>
+        <label>Score B-1</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Score_C_1__c</fullName>
+        <description>SRC: SMG3
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: Score C-1</description>
+        <externalId>false</externalId>
+        <label>Score C-1</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Score_Text_1__c</fullName>
+        <description>SRC: SMG3
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: Score Text 1</description>
+        <externalId>false</externalId>
+        <label>Score Text 1</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Status_Code__c</fullName>
+        <description>SRC: RMS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Recovery Status Code (status set within RMS)</description>
+        <externalId>false</externalId>
+        <label>Account Status Code</label>
+        <length>3</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Suit_Filling_Cost__c</fullName>
+        <description>Suit Filling Cost</description>
+        <externalId>false</externalId>
+        <label>Suit Filling Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Term_Duration__c</fullName>
+        <description>SRC: HOST
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing 
+FD: Terms Duration/ Used as backup field for credit bureau reporting Terms Duration</description>
+        <externalId>false</externalId>
+        <label>Term Duration</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Term_Frequency__c</fullName>
+        <description>SRC: HOST
+INT: Y
+Trans: Y
+BU: Charged Off Accounts Servicing
+FD: Original Terms Frequency</description>
+        <externalId>false</externalId>
+        <label>Term Frequency</label>
+        <length>1</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Total_cost__c</fullName>
+        <externalId>false</externalId>
+        <formula>CO_Suit_Filling_Cost__c  +  CO_Process_Cost__c  +  CO_Other_Cost__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Unearned_Prem_Refund_CLDP__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: The Unearned Premium refund amount received for canceling the Credit Life &amp; Disability policy from the dealership or policy provider</description>
+        <externalId>false</externalId>
+        <label>Unearned Premium Refund CLDP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Unearned_Prem_Refund_GAP__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: The Unearned Premium refund amount received for canceling the GAP policy from the dealership or policy provider</description>
+        <externalId>false</externalId>
+        <label>Unearned Premium Refund GAP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Unearned_Prem_Refund_MBP__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: The Unearned Premium refund amount received for canceling the Mechanical Breakdown Protection policy from the dealership or policy provider</description>
+        <externalId>false</externalId>
+        <label>Unearned Premium Refund MBP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Unearned_Prem_Refund_VSA__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: The Unearned Premium refund amount received for canceling the VSA policy from the dealership or policy provider</description>
+        <externalId>false</externalId>
+        <label>Unearned Premium Refund VSA</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Unpaid_Lease_Payments__c</fullName>
+        <description>SRC: HOST
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: Unpaid Lease Payments</description>
+        <externalId>false</externalId>
+        <label>Unpaid Lease Payments</label>
+        <length>3</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CO_Vehicle_Auction_Preparation_Amount__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Fees charged to the customer for preparing vehicle before auction. (not same as reconditioning)</description>
+        <externalId>false</externalId>
+        <label>Vehicle Auction Preparation Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CO_Vehicle_Reconditioning_Amount__c</fullName>
+        <description>SRC: ITS
+INT: Y
+Trans: N
+BU: Charged Off Accounts Servicing
+FD: Fees charged to the customer for reconditioning vehicle before auction</description>
+        <externalId>false</externalId>
+        <label>Vehicle Reconditioning Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Account__c</fullName>
+        <description>SRC: HOST
+INT: Y 
+Trans: N 
+BU: Charged Off Accounts Servicing 
+FD: Financial Account</description>
+        <externalId>false</externalId>
+        <label>Financial Account</label>
+        <referenceTo>Financial_Account__c</referenceTo>
+        <relationshipLabel>Charged Off Financial Accounts</relationshipLabel>
+        <relationshipName>Charged_Off_Financial_Accounts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Charged Off Financial Account</label>
+    <nameField>
+        <label>Charge Off Financial Account Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Charged Off Financial Accounts</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

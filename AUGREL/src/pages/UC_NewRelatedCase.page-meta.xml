@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>35.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Provides the ability to create a Case similar to any of the Cases from the Publisher Actions but this Case will be related to an existing Case.</description>
+    <label>UC_NewRelatedCase</label>
+</ApexPage>

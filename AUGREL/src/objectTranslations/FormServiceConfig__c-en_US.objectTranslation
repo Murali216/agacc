@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Form Service Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Form Service Configurations</value>
+    </caseValues>
+    <fields>
+        <label><!-- AttributeKey --></label>
+        <name>AttributeKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- AttributeType --></label>
+        <name>AttributeType__c</name>
+        <picklistValues>
+            <masterLabel>Request</masterLabel>
+            <translation><!-- Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response</masterLabel>
+            <translation><!-- Response --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- AttributeValue --></label>
+        <name>AttributeValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- ChildNode --></label>
+        <name>ChildNode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Type --></label>
+        <name>Data_Type__c</name>
+        <picklistValues>
+            <masterLabel>Checkbox</masterLabel>
+            <translation><!-- Checkbox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DATETIME</masterLabel>
+            <translation><!-- DATETIME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Date</masterLabel>
+            <translation><!-- Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decimal</masterLabel>
+            <translation><!-- Decimal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integer</masterLabel>
+            <translation><!-- Integer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>String</masterLabel>
+            <translation><!-- String --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ElementAttributeKey --></label>
+        <name>ElementAttributeKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- ElementAttributeValue --></label>
+        <name>ElementAttributeValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- FormService --></label>
+        <name>FormService__c</name>
+        <relationshipLabel><!-- Form Service Configurations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Key --></label>
+        <name>Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link to DocumentRequestLineItem Object --></label>
+        <name>Link_to_DocumentRequestLineItem_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link to Document Request Object --></label>
+        <name>Link_to_Document_Request_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Multiple Elements Node --></label>
+        <name>Multiple_Elements_Node__c</name>
+    </fields>
+    <fields>
+        <label><!-- ParentNode --></label>
+        <name>ParentNode__c</name>
+    </fields>
+    <fields>
+        <label><!-- ReferenceAttribute --></label>
+        <name>ReferenceAttribute__c</name>
+    </fields>
+    <fields>
+        <label><!-- SMigrationID --></label>
+        <name>SMigrationID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Seperator --></label>
+        <name>Seperator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Co-Borrower</masterLabel>
+            <translation><!-- Co-Borrower --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- allFields --></label>
+        <name>allFields__c</name>
+    </fields>
+    <fields>
+        <label><!-- isAttribute --></label>
+        <name>isAttribute__c</name>
+    </fields>
+    <fields>
+        <label><!-- isMultipleAttribute --></label>
+        <name>isMultipleAttribute__c</name>
+    </fields>
+    <layouts>
+        <layout>Form Service Configuration Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

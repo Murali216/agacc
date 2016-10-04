@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Attachment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Attachments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Attachment --></label>
+        <name>Attachment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Attachments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Printed Date --></label>
+        <name>Printed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Archived</masterLabel>
+            <translation><!-- Archived --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print Immediately (w/o Title/Lien Release)</masterLabel>
+            <translation><!-- Print Immediately (w/o Title/Lien Release) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print with Title/Lien Release</masterLabel>
+            <translation><!-- Print with Title/Lien Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Printed</masterLabel>
+            <translation><!-- Printed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- View --></label>
+        <name>View__c</name>
+    </fields>
+    <layouts>
+        <layout>Attachment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_Attachment --></label>
+        <name>Add_Attachment</name>
+    </webLinks>
+</CustomObjectTranslation>

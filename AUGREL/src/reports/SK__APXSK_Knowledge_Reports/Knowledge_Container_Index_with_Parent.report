@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$KnowledgeContainer__c.parent__c</field>
+    </columns>
+    <columns>
+        <field>FK_$KnowledgeContainer__c.Parent_Container_Lookup__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>ArticlePDF__c.Title__c</field>
+    </columns>
+    <columns>
+        <field>ArticlePDF__c.ArticleType__c</field>
+    </columns>
+    <columns>
+        <field>ArticlePDF__c.Summary__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Knowledge Container Index with Parent</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$ArticlePDF__c@ArticlePDF__c.Knowledge_Container__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>ArticlePDF__c.ArchivedDate__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

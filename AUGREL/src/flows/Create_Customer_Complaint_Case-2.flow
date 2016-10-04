@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Creates a customer complaint case. Match Service Recipient with UC Complaint</description>
+    <label>Create Customer Complaint Case</label>
+    <processType>Flow</processType>
+</Flow>

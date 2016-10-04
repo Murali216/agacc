@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Activity.Collection_Activity_Promise_Amount_1__c:SUM + Activity.Collection_Activity_Promise_Amount_2__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total Promised</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>RowCount</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>RPC Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>(Activity.Collection_Activity_Promise_Amount_1__c:SUM + Activity.Collection_Activity_Promise_Amount_2__c:SUM)/RowCount</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Average Collected</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_79805303</developerName>
+        <masterLabel>PTP</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>SUBJECT</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>CMPQ - PHONED CS M#,QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CMPE - PHONED CS M#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CMPP - PHONED CS M#, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CMPW - PHONED CS M#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPP - PHOND BUS, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPE - PHONED B#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPW - PHONED B#, PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TBPQ - PHONED B#, QUICK COLL PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPP - PHONED RES, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPE - PHONED R#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPW - PHONED R#, PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>TRPQ - PHONED R#, QUICK COLL PROMISE</sourceValue>
+            </sourceValues>
+            <value>PTP RPC</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>XMPE - PHONED CX M#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XMPW - PHONED CX M#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XMPP - PHONED CX M#, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPP - PHONED CX BUS, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPW - PHONED CX B#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPE - PHONED CX B#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XBPQ - PHONED CX B#,QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPP - PHONED CX RES, PROMISED TO PAY</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPE - PHONED CX R#, EBPP PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPQ - PHONED CX R#,QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XRPW - PHONED CX R#,PHONE PAY PROMISE</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>XMPQ - PHONED CX M#,QUICK COLL PROMIS</sourceValue>
+            </sourceValues>
+            <value>PTP RPC1</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_38628758</developerName>
+        <masterLabel>People</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>ASSIGNED</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Aileenfaith Bailey</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Jason Barrow</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Nathaniel Butler</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Amy Carter</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Melanie Donham</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Max Fischer</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Gregory Gienger</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Willecia Jones</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>David Kesten</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Jessica Lemon</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Shy Murph</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Marcus Roper</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Kirsten Somers</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Kristin Swolley</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Joseph Wicker</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Dennis R. Alexander</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Tannalle Grace</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Lisa Hombach</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Teresa Thompson</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Derek Murry</sourceValue>
+            </sourceValues>
+            <value>Agents</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA2</column>
+        </chartSummaries>
+        <chartType>VerticalColumn</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>ASSIGNED</groupingColumn>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>Activity.Collection_Activity_Code__c</field>
+    </columns>
+    <columns>
+        <field>DESCRIPTION</field>
+    </columns>
+    <columns>
+        <field>Activity.Collection_Activity_Promise_Amount_1__c</field>
+    </columns>
+    <columns>
+        <field>Activity.Collection_Activity_Promise_Amount_2__c</field>
+    </columns>
+    <columns>
+        <field>Activity.Source_Created_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>BucketField_79805303</column>
+            <operator>equals</operator>
+            <value>RPC,RPC1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>BucketField_38628758</column>
+            <operator>equals</operator>
+            <value>Agents</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>ASSIGNED</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>New Dave/Bree Daily PTP Report</name>
+    <params>
+        <name>closed</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>te</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Activity.Source_Created_Date__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

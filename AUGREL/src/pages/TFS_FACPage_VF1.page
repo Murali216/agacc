@@ -1,0 +1,128 @@
+<apex:page standardController="Financial_Account_Customer__c" extensions="TFS_FACController" sidebar="true" readOnly="False" tabStyle="Financial_Account_Customer__c">
+    <apex:includeScript value="{!$Resource.jquery}"/>
+
+    <script>
+    // Start : HiddenVFComponent - this is the content from HiddenVFCOmponent page that was embedded in FAC Standrad Page Layout. As we are replacing the Standard Page with VF, so putting the script in this VF   
+        var $j = jQuery.noConflict();
+        
+
+        function fireBorrowerEvent() {
+            if(sforce.console.isInConsole()){
+                sforce.console.fireEvent('BorrowerPageEvent', '{!Financial_Account_Customer__c.Id}', function(result){
+                        if (result.success) { 
+                               console.log('The Borrower event is fired!');
+                        } else { 
+                               console.log('The Borrower event could not be fired!');
+                        } 
+                    }
+                );
+            } 
+         }
+         
+        function fireEventForMaintainingFACReloadCount() {
+            if(sforce.console.isInConsole()){
+                sforce.console.fireEvent('BorrowerPageEventWithFAID', '{!Financial_Account_Customer__c.Id}--{!Financial_Account_Customer__c.Financial_Account__c}');
+            }
+        }
+        
+       
+        (function($j){
+            $j(document).ready(function() {
+                    fireBorrowerEvent();
+                    fireEventForMaintainingFACReloadCount();
+            });
+        })(jQuery);
+    //End     
+    </script>
+        <style type="text/css">
+    /* A normal state of the picklist, no combobox styles, only text displayed */
+.mySelect {
+    font-size: 12px;
+    width:100%;
+    color: #000;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+}
+/* Focused (clicked) state of the picklist, a normal combobox style displayed */
+.mySelect:focus {
+    -webkit-appearance: menulist ;
+    appearance: menulist ;
+    border: 1px solid #000;
+    background: white;
+    margin: 0;
+    width:initial;
+}
+
+.mySelect:hover {
+    background: url(/img/func_icons/util/pencil12.gif) no-repeat center right 2px  #e3f3ff;
+}
+
+.popup{
+display:block;
+background-color:ghostWhite;
+border-width: 2px;
+z-Index:9998;
+border:15px solid #ffffff !important;
+position: Fixed !important;
+width:300px;
+height:230px;
+top:70px;
+left:27.6%;        
+}
+
+.BackPage {
+background-color:#000;
+position: fixed;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+z-index: 9997;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px; /* future proofing */
+-khtml-border-radius: 10px;
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+filter: alpha(opacity=70);
+-khtml-opacity: 0.70;
+-moz-opacity: 0.70;
+opacity: 0.70;
+}
+.showClass
+{
+display:block;
+}
+.removeClass
+{
+display:none;
+}
+
+</style>
+    <apex:pageMessages />
+    <apex:form Id="myForm">
+         <apex:sectionHeader title="Financial Account Customer" subtitle="{!contextFAC.Name}" />
+
+        
+       
+
+<Apex:Detail Subject="{!contextFAC.Id}" relatedList="True" title="false" InlineEdit="True"/>
+
+        <script>
+    <!-- window.onload = function removeButtons() { -->
+      for(i=0;i<window.document.getElementsByName('Edit').length;i++)
+     {
+        window.document.getElementsByName('Edit')[i].style.display = 'none';
+     }
+     for(i=0;i<window.document.getElementsByName('delete').length;i++)
+     {
+        window.document.getElementsByName('delete')[i].style.display = 'none';
+     }
+   //}
+</script>   
+  
+    </apex:form>
+    <apex:relatedList List="Cases_del__r" pagesize="10"/>
+    <apex:relatedList List="Activities__r" pagesize="10"/>
+</apex:page>

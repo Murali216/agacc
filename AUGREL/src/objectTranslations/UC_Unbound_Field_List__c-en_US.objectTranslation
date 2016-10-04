@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>UC Unbound Field List</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>UC Unbound Field List</value>
+    </caseValues>
+    <fields>
+        <label><!-- Action --></label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Label --></label>
+        <name>Display_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- HTML Element --></label>
+        <name>HTML_Element__c</name>
+    </fields>
+    <fields>
+        <label><!-- SortOrder --></label>
+        <name>SortOrder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Topic --></label>
+        <name>Topic__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

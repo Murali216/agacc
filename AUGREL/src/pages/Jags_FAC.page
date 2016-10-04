@@ -1,0 +1,4 @@
+<apex:page standardController="Financial_Account_Customer__c" extensions="TFS_FACController" sidebar="true" readOnly="False" tabStyle="Financial_Account_Customer__c">
+    <apex:includeScript value="{!$Resource.jquery}"/>
+    <apex:detail subject="{!Financial_Account_Customer__c}" relatedList="true" title="true" relatedListHover="true" inlineEdit="true"/>
+</apex:page>

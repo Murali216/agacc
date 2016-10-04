@@ -1,0 +1,6 @@
+A late charge waiver has been submitted for an amount greater than $500.
+
+Case Number: {!Case.CaseNumber}
+Case Description: {!Case.Description}
+
+Thanks,

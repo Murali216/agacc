@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SfActivity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SfActivity</value>
+    </caseValues>
+    <fields>
+        <label><!-- abbreviatedConsentC --></label>
+        <name>abbreviatedConsentC__c</name>
+    </fields>
+    <fields>
+        <label><!-- abbreviatedConsentDateC --></label>
+        <name>abbreviatedConsentDateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- accountIdC --></label>
+        <name>accountIdC__c</name>
+    </fields>
+    <fields>
+        <label><!-- actionC --></label>
+        <name>actionC__c</name>
+    </fields>
+    <fields>
+        <label><!-- addressTypeC --></label>
+        <name>addressTypeC__c</name>
+    </fields>
+    <fields>
+        <label><!-- affiliateMarketingPrivacyC --></label>
+        <name>affiliateMarketingPrivacyC__c</name>
+    </fields>
+    <fields>
+        <label><!-- allPrivacyOptionsC --></label>
+        <name>allPrivacyOptionsC__c</name>
+    </fields>
+    <fields>
+        <label><!-- billingZipCodeExtnC --></label>
+        <name>billingZipCodeExtnC__c</name>
+    </fields>
+    <fields>
+        <label><!-- caseActionC --></label>
+        <name>caseActionC__c</name>
+    </fields>
+    <fields>
+        <label><!-- caseC --></label>
+        <name>caseC__c</name>
+    </fields>
+    <fields>
+        <label><!-- caseCategoryC --></label>
+        <name>caseCategoryC__c</name>
+    </fields>
+    <fields>
+        <label><!-- caseNumber --></label>
+        <name>caseNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- caseTopicC --></label>
+        <name>caseTopicC__c</name>
+    </fields>
+    <fields>
+        <label><!-- categoryC --></label>
+        <name>categoryC__c</name>
+    </fields>
+    <fields>
+        <label><!-- certifiedUsedC --></label>
+        <name>certifiedUsedC__c</name>
+    </fields>
+    <fields>
+        <label><!-- confirmationNumberC --></label>
+        <name>confirmationNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- contactIdC --></label>
+        <name>contactIdC__c</name>
+    </fields>
+    <fields>
+        <label><!-- createdById --></label>
+        <name>createdById__c</name>
+    </fields>
+    <fields>
+        <label><!-- createdDate --></label>
+        <name>createdDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- creditAppReportingPrivacyC --></label>
+        <name>creditAppReportingPrivacyC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentAddressC --></label>
+        <name>currentAddressC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentAddressNameC --></label>
+        <name>currentAddressNameC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentCareOfC --></label>
+        <name>currentCareOfC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentCityC --></label>
+        <name>currentCityC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentEmailAddressC --></label>
+        <name>currentEmailAddressC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentHomeNumberC --></label>
+        <name>currentHomeNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentHomeNumberDncC --></label>
+        <name>currentHomeNumberDncC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentHomeNumberInvalidC --></label>
+        <name>currentHomeNumberInvalidC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentHomeNumberMobileC --></label>
+        <name>currentHomeNumberMobileC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentMileageC --></label>
+        <name>currentMileageC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentMobileNumInvalidC --></label>
+        <name>currentMobileNumInvalidC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentMobileNumMobileC --></label>
+        <name>currentMobileNumMobileC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentMobileNumberC --></label>
+        <name>currentMobileNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentMobileNumberDncC --></label>
+        <name>currentMobileNumberDncC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentServicingEmailC --></label>
+        <name>currentServicingEmailC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentStateC --></label>
+        <name>currentStateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentWorkNumberC --></label>
+        <name>currentWorkNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentWorkNumberDncC --></label>
+        <name>currentWorkNumberDncC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentWorkNumberInvalidC --></label>
+        <name>currentWorkNumberInvalidC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentWorkNumberMobileC --></label>
+        <name>currentWorkNumberMobileC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentZipCodeC --></label>
+        <name>currentZipCodeC__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentZipCodeExtnC --></label>
+        <name>currentZipCodeExtnC__c</name>
+    </fields>
+    <fields>
+        <label><!-- dealerC --></label>
+        <name>dealerC__c</name>
+    </fields>
+    <fields>
+        <label><!-- descriptionC --></label>
+        <name>descriptionC__c</name>
+    </fields>
+    <fields>
+        <label><!-- electronicBusnAgreemntC --></label>
+        <name>electronicBusnAgreemntC__c</name>
+    </fields>
+    <fields>
+        <label><!-- electronicBusnAgreemntDtC --></label>
+        <name>electronicBusnAgreemntDtC__c</name>
+    </fields>
+    <fields>
+        <label><!-- financialAccountC --></label>
+        <name>financialAccountC__c</name>
+    </fields>
+    <fields>
+        <label><!-- financialAccountCustomerC --></label>
+        <name>financialAccountCustomerC__c</name>
+    </fields>
+    <fields>
+        <label><!-- financialAccountNumberC --></label>
+        <name>financialAccountNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- financialAcountCustIdC --></label>
+        <name>financialAcountCustIdC__c</name>
+    </fields>
+    <fields>
+        <label><!-- garageZipCodeExtnC --></label>
+        <name>garageZipCodeExtnC__c</name>
+    </fields>
+    <fields>
+        <label><!-- goodThruDateC --></label>
+        <name>goodThruDateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- grossPayOffC --></label>
+        <name>grossPayOffC__c</name>
+    </fields>
+    <fields>
+        <label><!-- id --></label>
+        <name>id__c</name>
+    </fields>
+    <fields>
+        <label><!-- immediateActionC --></label>
+        <name>immediateActionC__c</name>
+    </fields>
+    <fields>
+        <label><!-- integrationIdC --></label>
+        <name>integrationIdC__c</name>
+    </fields>
+    <fields>
+        <label><!-- languagePreferenceC --></label>
+        <name>languagePreferenceC__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastModifiedById --></label>
+        <name>lastModifiedById__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastModifiedByLanIdC --></label>
+        <name>lastModifiedByLanIdC__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastModifiedDate --></label>
+        <name>lastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- makeC --></label>
+        <name>makeC__c</name>
+    </fields>
+    <fields>
+        <label><!-- marketingCommPrefEmailC --></label>
+        <name>marketingCommPrefEmailC__c</name>
+    </fields>
+    <fields>
+        <label><!-- marketingCommPrefHomePhnC --></label>
+        <name>marketingCommPrefHomePhnC__c</name>
+    </fields>
+    <fields>
+        <label><!-- marketingCommPrefTextC --></label>
+        <name>marketingCommPrefTextC__c</name>
+    </fields>
+    <fields>
+        <label><!-- marketingCommPrefWorkPhnC --></label>
+        <name>marketingCommPrefWorkPhnC__c</name>
+    </fields>
+    <fields>
+        <label><!-- marktingCommPrefMobPhnC --></label>
+        <name>marktingCommPrefMobPhnC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newAddressC --></label>
+        <name>newAddressC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newAddressNameC --></label>
+        <name>newAddressNameC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newCareOfC --></label>
+        <name>newCareOfC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newCityC --></label>
+        <name>newCityC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newEmailAddressC --></label>
+        <name>newEmailAddressC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newHomeNumberC --></label>
+        <name>newHomeNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newHomeNumberDncC --></label>
+        <name>newHomeNumberDncC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newHomeNumberInvalidC --></label>
+        <name>newHomeNumberInvalidC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newHomeNumberMobileC --></label>
+        <name>newHomeNumberMobileC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newMobileNumberC --></label>
+        <name>newMobileNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newMobileNumberDncC --></label>
+        <name>newMobileNumberDncC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newMobileNumberInvalidC --></label>
+        <name>newMobileNumberInvalidC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newMobileNumberMobileC --></label>
+        <name>newMobileNumberMobileC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newServicingEmailC --></label>
+        <name>newServicingEmailC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newStateC --></label>
+        <name>newStateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newWorkNumberC --></label>
+        <name>newWorkNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newWorkNumberDncC --></label>
+        <name>newWorkNumberDncC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newWorkNumberInvalidC --></label>
+        <name>newWorkNumberInvalidC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newWorkNumberMobileC --></label>
+        <name>newWorkNumberMobileC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newZipCodeC --></label>
+        <name>newZipCodeC__c</name>
+    </fields>
+    <fields>
+        <label><!-- newZipCodeExtnC --></label>
+        <name>newZipCodeExtnC__c</name>
+    </fields>
+    <fields>
+        <label><!-- onlineFlagC --></label>
+        <name>onlineFlagC__c</name>
+    </fields>
+    <fields>
+        <label><!-- originalPaymentDateC --></label>
+        <name>originalPaymentDateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- overallConsentC --></label>
+        <name>overallConsentC__c</name>
+    </fields>
+    <fields>
+        <label><!-- payOffQuoteC --></label>
+        <name>payOffQuoteC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentAmountC --></label>
+        <name>paymentAmountC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentDateC --></label>
+        <name>paymentDateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentNotReceivedEmailC --></label>
+        <name>paymentNotReceivedEmailC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentNotReceivedTextC --></label>
+        <name>paymentNotReceivedTextC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentReceivedEmailC --></label>
+        <name>paymentReceivedEmailC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentReceivedTextC --></label>
+        <name>paymentReceivedTextC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentReminderDayC --></label>
+        <name>paymentReminderDayC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentReminderEmailC --></label>
+        <name>paymentReminderEmailC__c</name>
+    </fields>
+    <fields>
+        <label><!-- paymentReminderTextC --></label>
+        <name>paymentReminderTextC__c</name>
+    </fields>
+    <fields>
+        <label><!-- perDiemC --></label>
+        <name>perDiemC__c</name>
+    </fields>
+    <fields>
+        <label><!-- preferredContactC --></label>
+        <name>preferredContactC__c</name>
+    </fields>
+    <fields>
+        <label><!-- processDateC --></label>
+        <name>processDateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- processingAssociateC --></label>
+        <name>processingAssociateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- programIC --></label>
+        <name>programIC__c</name>
+    </fields>
+    <fields>
+        <label><!-- programIIC --></label>
+        <name>programIIC__c</name>
+    </fields>
+    <fields>
+        <label><!-- programIIIC --></label>
+        <name>programIIIC__c</name>
+    </fields>
+    <fields>
+        <label><!-- purchaseOptC --></label>
+        <name>purchaseOptC__c</name>
+    </fields>
+    <fields>
+        <label><!-- quotedToC --></label>
+        <name>quotedToC__c</name>
+    </fields>
+    <fields>
+        <label><!-- recordTypeId --></label>
+        <name>recordTypeId__c</name>
+    </fields>
+    <fields>
+        <label><!-- refundAmountC --></label>
+        <name>refundAmountC__c</name>
+    </fields>
+    <fields>
+        <label><!-- residualValueC --></label>
+        <name>residualValueC__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRecipientC --></label>
+        <name>serviceRecipientC__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRequestCategoryC --></label>
+        <name>serviceRequestCategoryC__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRequestTypeC --></label>
+        <name>serviceRequestTypeC__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRequestUserGroupC --></label>
+        <name>serviceRequestUserGroupC__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceResultC --></label>
+        <name>serviceResultC__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceTypeC --></label>
+        <name>serviceTypeC__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceCreatedByC --></label>
+        <name>sourceCreatedByC__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceCreatedDateC --></label>
+        <name>sourceCreatedDateC__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceSystemCreatedByC --></label>
+        <name>sourceSystemCreatedByC__c</name>
+    </fields>
+    <fields>
+        <label><!-- srFirstNameC --></label>
+        <name>srFirstNameC__c</name>
+    </fields>
+    <fields>
+        <label><!-- srLastNameBusinessNameC --></label>
+        <name>srLastNameBusinessNameC__c</name>
+    </fields>
+    <fields>
+        <label><!-- starsSrNumberC --></label>
+        <name>starsSrNumberC__c</name>
+    </fields>
+    <fields>
+        <label><!-- statusC --></label>
+        <name>statusC__c</name>
+    </fields>
+    <fields>
+        <label><!-- subjectC --></label>
+        <name>subjectC__c</name>
+    </fields>
+    <fields>
+        <label><!-- telemarketingPrivacyC --></label>
+        <name>telemarketingPrivacyC__c</name>
+    </fields>
+    <fields>
+        <label><!-- tfsLfsDealerPrivacyC --></label>
+        <name>tfsLfsDealerPrivacyC__c</name>
+    </fields>
+    <fields>
+        <label><!-- tfsLfsInfoEmailAddrC --></label>
+        <name>tfsLfsInfoEmailAddrC__c</name>
+    </fields>
+    <fields>
+        <label><!-- thirdPartyPrivacyC --></label>
+        <name>thirdPartyPrivacyC__c</name>
+    </fields>
+    <fields>
+        <label><!-- topicC --></label>
+        <name>topicC__c</name>
+    </fields>
+    <fields>
+        <label><!-- typeC --></label>
+        <name>typeC__c</name>
+    </fields>
+    <fields>
+        <label><!-- warmTransferC --></label>
+        <name>warmTransferC__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

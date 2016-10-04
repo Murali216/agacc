@@ -1,0 +1,52 @@
+<apex:page controller="Forms_AdverseActionDemoController" >
+ 
+ <apex:form >
+        <apex:pageBlock >
+        <apex:pageMessages id="pgmsg"></apex:pageMessages>
+            <apex:pageBlockSection title="Form Request" columns="1">             
+             
+                    <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Form Number</apex:outputLabel>
+                    <apex:inputText value="{!formNumber}" />
+                 </apex:pageBlockSectionItem> 
+                  <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Number</apex:outputLabel>
+                    <apex:inputText value="{!accountNumber}" />
+                 </apex:pageBlockSectionItem> 
+                    <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Creation Date</apex:outputLabel>                
+                    <apex:inputText value="{!creationDate}" />
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Device Name</apex:outputLabel>
+                    <apex:inputText value="{!deviceName}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                 <apex:outputLabel >Dispatch Name</apex:outputLabel>
+                <apex:selectList value="{!dispatchName}" multiselect="true" size="4">                          
+                 <apex:selectOptions value="{!dispatchSelectOptions}" />
+                 </apex:selectList>
+                  </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Source System</apex:outputLabel>
+                    <apex:inputText value="{!sourceSystem}" />
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Request Id</apex:outputLabel>
+                    <apex:inputText value="{!requestId}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Recipient</apex:outputLabel>
+                    <apex:inputText value="{!recipient}" />
+                </apex:pageBlockSectionItem>                 
+                  
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Submit" action="{!submit}" rerender="pgmsg"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        </apex:form>
+
+ 
+</apex:page>

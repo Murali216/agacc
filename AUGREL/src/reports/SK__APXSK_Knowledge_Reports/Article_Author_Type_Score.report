@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>IF(KnowledgeArticleVoteStat.NormalizedScore:AVG = 0, 0, (KnowledgeArticleVoteStat.NormalizedScore:SUM / KnowledgeArticleVoteStat.WeightedCount:SUM) / 100)</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>Sum of Ratings divided by Sum of Votes (The system calculation includes blanks)</description>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Actual Average Rating</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA1</column>
+        </chartSummaries>
+        <chartType>HorizontalBarGrouped</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>KnowledgeArticle$CreatedBy</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>KnowledgeArticle$ArticleType</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>KnowledgeArticle.VoteStats$NormalizedScore</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.VoteStats$WeightedCount</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeArticle.VoteStats$NormalizedScore</column>
+            <operator>greaterThan</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KnowledgeArticle.VoteStats$WeightedCount</column>
+            <operator>greaterOrEqual</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KnowledgeArticle$Title</column>
+            <operator>notEqual</operator>
+            <value>Rate me 5 Stars - Test rating Article</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KnowledgeArticle$Title</column>
+            <operator>notEqual</operator>
+            <value>Leave #Feedback for knowledge Management</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KnowledgeArticle$Title</column>
+            <operator>notEqual</operator>
+            <value>Rate a Knowledge Article</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KnowledgeArticle.VoteStats$NormalizedScore</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>KnowledgeArticle$ArticleType</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>KnowledgeArticle$CreatedBy</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Article Author - Type - Score</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles_Score_Detail__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_CURPREV1</interval>
+    </timeFrameFilter>
+</Report>

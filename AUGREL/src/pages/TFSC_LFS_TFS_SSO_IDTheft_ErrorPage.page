@@ -1,0 +1,4 @@
+<apex:page showHeader="False" showQuickActionVfHeader="false" sidebar="false" showChat="false">
+  <apex:image url="{!$Resource.SSO_Warning_Icon}"/>
+  <Font color='RED' size='3'> Support Center is not available. For assistance please call (800) 874-8822.</Font>
+</apex:page>

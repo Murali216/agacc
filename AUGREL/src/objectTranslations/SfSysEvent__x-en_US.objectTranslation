@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SfSysEvent</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SfSysEvent</value>
+    </caseValues>
+    <fields>
+        <label><!-- action --></label>
+        <name>action__c</name>
+    </fields>
+    <fields>
+        <label><!-- category --></label>
+        <name>category__c</name>
+    </fields>
+    <fields>
+        <label><!-- certifiedUsed --></label>
+        <name>certifiedUsed__c</name>
+    </fields>
+    <fields>
+        <label><!-- createdDate --></label>
+        <name>createdDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- currentMileage --></label>
+        <name>currentMileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- dealer --></label>
+        <name>dealer__c</name>
+    </fields>
+    <fields>
+        <label><!-- description --></label>
+        <name>description__c</name>
+    </fields>
+    <fields>
+        <label><!-- editMessage --></label>
+        <name>editMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- financeReason --></label>
+        <name>financeReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- financialAccountCustomerId --></label>
+        <name>financialAccountCustomerId__c</name>
+    </fields>
+    <fields>
+        <label><!-- financialAccountNumber --></label>
+        <name>financialAccountNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- goodThruDate --></label>
+        <name>goodThruDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- grossPayOff --></label>
+        <name>grossPayOff__c</name>
+    </fields>
+    <fields>
+        <label><!-- id --></label>
+        <name>id__c</name>
+    </fields>
+    <fields>
+        <label><!-- immediateAction --></label>
+        <name>immediateAction__c</name>
+    </fields>
+    <fields>
+        <label><!-- integrationID --></label>
+        <name>integrationID__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastModifiedBy --></label>
+        <name>lastModifiedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastModifiedDate --></label>
+        <name>lastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- make --></label>
+        <name>make__c</name>
+    </fields>
+    <fields>
+        <label><!-- netPayOff --></label>
+        <name>netPayOff__c</name>
+    </fields>
+    <fields>
+        <label><!-- payOffQuote --></label>
+        <name>payOffQuote__c</name>
+    </fields>
+    <fields>
+        <label><!-- perDiem --></label>
+        <name>perDiem__c</name>
+    </fields>
+    <fields>
+        <label><!-- preferredContact --></label>
+        <name>preferredContact__c</name>
+    </fields>
+    <fields>
+        <label><!-- processDate --></label>
+        <name>processDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- programIII --></label>
+        <name>programIII__c</name>
+    </fields>
+    <fields>
+        <label><!-- programII --></label>
+        <name>programII__c</name>
+    </fields>
+    <fields>
+        <label><!-- programI --></label>
+        <name>programI__c</name>
+    </fields>
+    <fields>
+        <label><!-- purchaseOpt --></label>
+        <name>purchaseOpt__c</name>
+    </fields>
+    <fields>
+        <label><!-- quotedTo --></label>
+        <name>quotedTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- recipient --></label>
+        <name>recipient__c</name>
+    </fields>
+    <fields>
+        <label><!-- residualValue --></label>
+        <name>residualValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- rlParentRecordType --></label>
+        <name>rlParentRecordType__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRecipient --></label>
+        <name>serviceRecipient__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRequestCategory --></label>
+        <name>serviceRequestCategory__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRequestType --></label>
+        <name>serviceRequestType__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceRequestUserGroup --></label>
+        <name>serviceRequestUserGroup__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceResult --></label>
+        <name>serviceResult__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceType --></label>
+        <name>serviceType__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceCreatedBy --></label>
+        <name>sourceCreatedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceCreatedDate --></label>
+        <name>sourceCreatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- sourceSystemCreatedBy --></label>
+        <name>sourceSystemCreatedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- srFirstName --></label>
+        <name>srFirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- srLastNameBusinessName --></label>
+        <name>srLastNameBusinessName__c</name>
+    </fields>
+    <fields>
+        <label><!-- starsSrNumber --></label>
+        <name>starsSrNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- status --></label>
+        <name>status__c</name>
+    </fields>
+    <fields>
+        <label><!-- subject --></label>
+        <name>subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- topic --></label>
+        <name>topic__c</name>
+    </fields>
+    <fields>
+        <label><!-- transferReason --></label>
+        <name>transferReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- warmTransfer --></label>
+        <name>warmTransfer__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

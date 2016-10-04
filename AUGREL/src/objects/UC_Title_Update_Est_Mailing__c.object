@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Values for calculating Est Mailing Date</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Days_to_Add__c</fullName>
+        <externalId>false</externalId>
+        <label>Days to Add</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hold_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Hold Reason</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title_State__c</fullName>
+        <externalId>false</externalId>
+        <label>Title State</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>UC Title Update Est Mailing</label>
+    <visibility>Public</visibility>
+</CustomObject>

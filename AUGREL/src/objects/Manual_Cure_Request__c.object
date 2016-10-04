@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SRC: TFS AB Requirements
+INT: ETL will pull the data and update the consumed flag
+Trans: Manual Cure workflow
+BU: Collections
+FD: To store the manual cure requests records which will be consumed by ETL</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AcctNumber__c</fullName>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To store the CO Host Account Number</description>
+        <externalId>false</externalId>
+        <label>Acct #</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Borrower__c</fullName>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To store the borrower full name from FA</description>
+        <externalId>false</externalId>
+        <label>Borrower</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To store the comments entered by user on flow.</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>450</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Consumed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To determine whether record has been consumed by ETL or not.</description>
+        <externalId>false</externalId>
+        <label>Consumed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Form__c</fullName>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To store the recommended form</description>
+        <externalId>false</externalId>
+        <label>Form</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To store the answer for  &apos;Why is a manual Cure required?&apos; from flow</description>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requested_Date__c</fullName>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To store the current data/time when request came</description>
+        <externalId>false</externalId>
+        <label>Requested Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Requestor__c</fullName>
+        <description>SRC: TFS AB6 Requirement
+INT: ETL will pull the data and update the consumed flag 
+Trans: Manual Cure workflow 
+BU: Collections
+FD: To store the full name of user running the flow.</description>
+        <externalId>false</externalId>
+        <label>Requestor</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Manual Cure Request</label>
+    <nameField>
+        <displayFormat>MCR-{0000}</displayFormat>
+        <label>Manual Cure Request Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Manual Cure Requests</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

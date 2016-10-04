@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>1</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>Activity.Financial_Account_Number__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel># of Accounts</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_89054771</developerName>
+        <masterLabel>Agents</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>ASSIGNED</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Gregory Gienger</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Amy Carter</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Melanie Donham</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>David Kesten</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Marcus Roper</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Tannalle Grace</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Javieor Hodge</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ebone McVeigh</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Thomas Gibbs</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Raeven Anderson</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Hailey Bowen</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Shannetta Bland</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Chyeanna Rogers</sourceValue>
+            </sourceValues>
+            <value>people</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Leauna Avant</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Alexis Scott</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Rachel Mora</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Shavon Smith</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ramiro Pedroza</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Shelley Wertz</sourceValue>
+            </sourceValues>
+            <value>people1</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA1</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStacked</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>ASSIGNED</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>Activity.Financial_Account_Number__c</secondaryGroupingColumn>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Huge</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Account Tracker</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>Activity.Source_Created_Date__c</field>
+    </columns>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>BucketField_89054771</column>
+            <operator>equals</operator>
+            <value>people,people1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>ASSIGNED</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity.Financial_Account_Number__c</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Asc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>New Team Dave/Bree Daily Accounts Report</name>
+    <params>
+        <name>closed</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>te</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <endDate>2016-05-19</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-05-19</startDate>
+    </timeFrameFilter>
+</Report>

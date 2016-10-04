@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SfArchivedStarsSR</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SfArchivedStarsSR</value>
+    </caseValues>
+    <fields>
+        <label><!-- financialAccountNumber --></label>
+        <name>financialAccountNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastUpdatedBy --></label>
+        <name>lastUpdatedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- lastUpdatedDate --></label>
+        <name>lastUpdatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- serviceResult --></label>
+        <name>serviceResult__c</name>
+    </fields>
+    <fields>
+        <label><!-- srCategory --></label>
+        <name>srCategory__c</name>
+    </fields>
+    <fields>
+        <label><!-- srCreatedBy --></label>
+        <name>srCreatedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- srCreatedDate --></label>
+        <name>srCreatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- srDescriptionText --></label>
+        <name>srDescriptionText__c</name>
+    </fields>
+    <fields>
+        <label><!-- srNumber --></label>
+        <name>srNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- srRecipient --></label>
+        <name>srRecipient__c</name>
+    </fields>
+    <fields>
+        <label><!-- srStatus --></label>
+        <name>srStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- srType --></label>
+        <name>srType__c</name>
+    </fields>
+    <fields>
+        <label><!-- userGroup --></label>
+        <name>userGroup__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

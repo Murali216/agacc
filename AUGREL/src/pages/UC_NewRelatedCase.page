@@ -1,0 +1,5 @@
+<apex:page standardController="Case"
+            extensions="UC_NewRelatedCaseController"> 
+            
+   <apex:include pageName="UC_NewRelatedCaseTemplate"/>
+</apex:page>

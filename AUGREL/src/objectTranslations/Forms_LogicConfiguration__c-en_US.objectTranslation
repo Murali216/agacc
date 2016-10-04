@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Forms Logic Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms Logic Configurations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Document Object --></label>
+        <name>Document_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logic Condition --></label>
+        <name>Logic_Condition__c</name>
+        <picklistValues>
+            <masterLabel>ADD</masterLabel>
+            <translation><!-- ADD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IF</masterLabel>
+            <translation><!-- IF --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MigrationID --></label>
+        <name>MigrationID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Operator --></label>
+        <name>Operator__c</name>
+        <picklistValues>
+            <masterLabel>&lt;</masterLabel>
+            <translation><!-- &lt; --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>=</masterLabel>
+            <translation><!-- = --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt;</masterLabel>
+            <translation><!-- &gt; --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Referecen Attribute --></label>
+        <name>Referecen_Attribute__c</name>
+    </fields>
+    <fields>
+        <label><!-- expression --></label>
+        <name>expression__c</name>
+    </fields>
+    <fields>
+        <label><!-- failValue --></label>
+        <name>failValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- referenceValue --></label>
+        <name>referenceValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- successValue --></label>
+        <name>successValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- value --></label>
+        <name>value__c</name>
+    </fields>
+    <layouts>
+        <layout>Forms Logic Configuration Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

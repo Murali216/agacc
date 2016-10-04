@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Creates a child case on the publisher</description>
+    <height>650</height>
+    <icon>PublisherRelatedCase</icon>
+    <label>Create Related Case</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>UC_NewRelatedCase</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

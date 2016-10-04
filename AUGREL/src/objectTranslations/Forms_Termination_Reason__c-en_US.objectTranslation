@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Forms Termination Reason</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms Termination Reasons</value>
+    </caseValues>
+    <fields>
+        <label><!-- Abode Reason --></label>
+        <name>Abode_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Termination Reason Description --></label>
+        <name>Forms_Termination_Reason_Description__c</name>
+    </fields>
+    <layouts>
+        <layout>Forms Termination Reason Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

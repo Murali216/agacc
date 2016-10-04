@@ -1,0 +1,153 @@
+<apex:page standardController="Financial_Account_Customer__c" extensions="TFS_FACController" sidebar="true" readOnly="false" tabStyle="Financial_Account_Customer__c">
+    <apex:pageMessages />
+    <script>
+function colorPageBlock(pageblock, color) {
+        if(pageblock != null) 
+        pageblock.firstChild.style.cssText = "background-color: " +color+";";
+        //pageblock.firstChild.style.cssText = "border-color: " + color + ";";
+        }  
+</script>
+    <Apex:Form Id="myForm">
+        <apex:sectionHeader title="Financial Account Customer" subtitle="{!contextFAC.Name}" />    
+        <apex:pageBlock id="MailingAddBlk" mode="maindetail" title="Financial Account Customer Detail">
+                    <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Save" />
+            <apex:commandButton action="{!cancel}" value="Cancel" />                                                            
+        </apex:pageBlockButtons>
+            
+                    <apex:pageBlockSection id="InformationSection" columns="2" title="Information"> 
+    
+            <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.Information}" var="f">     
+                <apex:pageBlockSectionItem rendered="{!f.FieldPath=='Flag_Military_Status__c' || f.FieldPath=='Direct_Sale__c'}">
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}">
+                    <apex:outputLabel value="{!f.Label}"/>
+                    <apex:inputField value="{!contextFAC[f]}" />
+                 </apex:pageBlockSectionItem>                      
+            </apex:repeat>
+                        
+            <script>colorPageBlock(document.getElementById("{!$Component.InformationSection}"), "#ffe5e5");</script>
+                        
+             </apex:pageBlockSection> 
+             
+                      <apex:pageBlockSection id="GarageAddressAndPhone" columns="2"   title="Garage Address & Phones">   
+
+                   <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.Garage_Address_Phones}" var="f"> 
+  
+                       <apex:pageBlockSectionItem rendered="{! f.FieldPath == 'Work_Phone_Garage__c' || f.FieldPath == 'Invalid_Work_Phone_Acknowledged_Garage__c' || f.FieldPath = 'Work_Phone_No_Call_Reason_Garage__c' || f.FieldPath == 'Flag_Work_Phone_DNC_Garage__c' || f.FieldPath == 'Flag_Work_Phone_Invalid_Garage__c' || f.FieldPath == 'Flag_Work_Phone_IsMobile_Garage__c' || f.FieldPath == 'Mobile_Phone__c' || f.FieldPath == 'Invalid_Mobile_Phone_Acknowledged__c' || f.FieldPath == 'Mobile_Phone_No_Call_Reason__c' || f.FieldPath == 'Flag_Mobile_Phone_DNC__c' || f.FieldPath == 'Flag_Mobile_Phone_Invalid__c' || f.FieldPath == 'Flag_Mobile_Phone_IsMobile__c' }">
+                        </apex:pageBlockSectionItem> 
+
+                                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}">
+                                        <apex:outputLabel value="{!f.Label}"/>
+                                        <apex:InputField value="{!contextFAC[f]}" />
+                        </apex:pageBlockSectionItem>          
+                    </apex:repeat>
+                   <script> colorPageBlock(document.getElementById("{!$Component.GarageAddressAndPhone}"), "#ffe5e5");</script>            
+                </apex:pageBlockSection>  
+            
+            
+            <apex:pageBlockSection id="BillingAddressId" Columns="2" collapsible="true" title="Billing Address & Phones(Lease Only)">
+    <apex:repeat Value="{! $ObjectType.Financial_Account_Customer__c.FieldSets.Billing_Address_Phones}" var="f">
+                               <apex:pageBlockSectionItem rendered="{! f.FieldPath == 'Work_Phone_No_Call_Reason_BillTo__c' || f.FieldPath=='Flag_Work_Phone_DNC_BillTo__c'|| f.FieldPath == 'Flag_Work_Phone_Invalid_BillTo__c' || f.FieldPath=='Flag_Work_Phone_Is_Mobile_BillTo__c'}">
+                        </apex:pageBlockSectionItem> 
+                                 <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}">
+                                        <apex:outputLabel value="{!f.Label}"/>
+                                        <apex:InputField value="{!contextFAC[f]}" />
+                        </apex:pageBlockSectionItem>
+    </apex:repeat>
+                <script> colorPageBlock(document.getElementById("{!$Component.BillingAddressId}"), "#ffe5e5");</script>   
+             </apex:pageBlockSection>
+             
+                         <apex:pageBlockSection id="CustConsentSection" columns="2" collapsible="true"  title="Customer Consents & Language">
+                    
+                    <apex:inputField value="{!contextFAC.Election_Overall_Consent__c}" />   
+                    <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.Customer_Consents_Language}" var="f">     
+                         <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}">
+                                <apex:outputLabel value="{!f.Label}"/>
+                                <apex:inputField value="{!contextFAC[f]}" >                                            
+                                </apex:inputField>
+                        </apex:pageBlockSectionItem>                            
+                    </apex:repeat>
+                    <script>colorPageBlock(document.getElementById("{!$Component.CustConsentSection}"), "#ffe5e5");</script>        
+             </apex:pageBlockSection>
+            
+                         <apex:pageBlockSection id="AcctServicingPrefSection" columns="2" collapsible="true"  title="Account Servicing Preferences">   
+                 
+                     <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.Account_Servicing_Preferences}" var="f">                                                                    
+            <apex:inputField value="{!contextFAC[f]}" />
+        </apex:repeat>                                      
+                     <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Payment Not Received Text"/>                        
+                        <apex:selectList styleClass="mySelect" value="{!contextFAC.Election_Payment_NotReceivedText__c}" multiselect="False" size="1">
+                                <apex:selectOptions value="{!PaymentNotRecvdTxt}" />
+                        </apex:selectList>                                        
+                     </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem >
+                     </apex:pageBlockSectionItem> 
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Payment Not Received Email"/>
+                        <apex:selectList styleClass="mySelect" value="{!contextFAC.Election_Payment_NotReceivedEmail__c}" multiselect="False" size="1">
+                                <apex:selectOptions value="{!PaymentNotRecvdEmail}"/>
+                        </apex:selectList>
+                     </apex:pageBlockSectionItem>          
+                 <script>colorPageBlock(document.getElementById("{!$Component.AcctServicingPrefSection}"), "#ffe5e5");</script>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection id="MarketingPrefSection" columns="2" collapsible="true"  title="Marketing Preferences">   
+                          
+                    <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.Marketing_Preferences}" var="f">     
+                         <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}">
+                                <apex:outputLabel value="{!f.Label}"/>
+                                <apex:inputField value="{!contextFAC[f]}" />
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+                    <script>colorPageBlock(document.getElementById("{!$Component.MarketingPrefSection}"), "#ffe5e5");</script>  
+                </apex:pageBlockSection>
+            
+              <apex:pageBlockSection id="PrivacyElectionsSection" columns="2" collapsible="true"  title="Privacy Elections">   
+                   <!---->
+                    <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.Privacy_Elections}" var="f">     
+                         <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}">
+                                <apex:outputLabel value="{!f.Label}"/>
+                                <apex:inputField value="{!contextFAC[f]}" />
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+                    <script>colorPageBlock(document.getElementById("{!$Component.PrivacyElectionsSection}"), "#ffe5e5");</script>
+                </apex:pageBlockSection>
+                
+                
+                    <apex:pageBlockSection id="bkSCRA" columns="2" collapsible="true"  title="BK-SCRA Information">   
+                   <!---->
+                    <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.Bankruptcy_and_SCRA_Information}" var="f">     
+                         <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}">
+                                <apex:outputLabel value="{!f.Label}"/>
+                                <apex:inputField value="{!contextFAC[f]}" />
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+                    <script>colorPageBlock(document.getElementById("{!$Component.bkSCRA}"), "#ffe5e5");</script>
+                </apex:pageBlockSection>
+                
+                               <apex:pageBlockSection id="SystemInformationSection" columns="2" collapsible="true"  title="System Information">   
+                          
+                    <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.System_Information}" var="f">     
+                         <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}" rendered="{!f.Label == 'Financial Account Customer Name'}">
+                                <apex:outputLabel value="{!f.Label}"/>
+                                <apex:inputField value="{!contextFAC[f]}" />
+                         </apex:pageBlockSectionItem>
+                    </apex:repeat>
+
+                <apex:repeat value="{!$ObjectType.Financial_Account_Customer__c.FieldSets.System_Information}" var="f">     
+                     <apex:pageBlockSectionItem helpText="{!$ObjectType.Financial_Account_Customer__c.fields[f].inlineHelpText}" rendered="{!f.Label == 'Account'}">
+                        <apex:outputLabel value="{!f.Label}"/>
+                        <apex:inputField value="{!contextFAC[f]}" />
+                    </apex:pageBlockSectionItem>
+                    </apex:repeat>   
+
+                <script>colorPageBlock(document.getElementById("{!$Component.SystemInformationSection}"), "#ffe5e5");</script>          
+                </apex:pageBlockSection>  
+            
+            
+             
+        </apex:pageBlock>
+    </Apex:Form>
+</apex:page>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ArticlePDF__c.Title__c</field>
+    </columns>
+    <columns>
+        <field>ArticlePDF__c.ArticleType__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>ArticlePDF__c.PublishStatus__c</column>
+            <operator>equals</operator>
+            <value>Online</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ArticlePDF__c.Knowledge_Container__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Knowledge Container Index</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$ArticlePDF__c@ArticlePDF__c.Knowledge_Container_Name__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>ArticlePDF__c.LastPublishedDate__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,5 @@
+<apex:page standardController="Case" 
+            extensions="UC_NewRelatedActivityController"> 
+             
+   <apex:include pageName="UC_NewRelatedActivityTemplate"/>  
+</apex:page>

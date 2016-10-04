@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>UC Title Update Est Mailing</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>UC Title Update Est Mailing</value>
+    </caseValues>
+    <fields>
+        <label><!-- Days to Add --></label>
+        <name>Days_to_Add__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hold Reason --></label>
+        <name>Hold_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title State --></label>
+        <name>Title_State__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

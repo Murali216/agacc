@@ -1,0 +1,6 @@
+<apex:page standardController="Financial_Account__c" 
+            extensions="UC_NewActivityController"
+            action="{!CallToAction}"> 
+            
+   <apex:include pageName="UC_NewActivityTemplate"/>  
+</apex:page>

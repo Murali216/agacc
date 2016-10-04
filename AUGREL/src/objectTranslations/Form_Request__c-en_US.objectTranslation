@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Form Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Form Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Number --></label>
+        <name>Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- CreationDate --></label>
+        <name>CreationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Name --></label>
+        <name>Device_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dispatch Name --></label>
+        <name>Dispatch_Name__c</name>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network Print</masterLabel>
+            <translation><!-- Network Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print Central</masterLabel>
+            <translation><!-- Print Central --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print Local</masterLabel>
+            <translation><!-- Print Local --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Effective State Code --></label>
+        <name>Effective_State_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Number --></label>
+        <name>Form_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Type --></label>
+        <name>Form_Type__c</name>
+        <picklistValues>
+            <masterLabel>Automated</masterLabel>
+            <translation><!-- Automated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interactive</masterLabel>
+            <translation><!-- Interactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recipient --></label>
+        <name>Recipient__c</name>
+    </fields>
+    <fields>
+        <label><!-- RequestID --></label>
+        <name>RequestID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SourceSystem --></label>
+        <name>SourceSystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- StatementYear --></label>
+        <name>StatementYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target System --></label>
+        <name>Target_System__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

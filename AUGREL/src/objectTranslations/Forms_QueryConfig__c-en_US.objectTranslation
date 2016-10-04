@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Forms Query Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms Query Configurations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Complex Query --></label>
+        <name>Complex_Query__c</name>
+    </fields>
+    <fields>
+        <label><!-- DataType --></label>
+        <name>DataType__c</name>
+        <picklistValues>
+            <masterLabel>Integer</masterLabel>
+            <translation><!-- Integer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>String</masterLabel>
+            <translation><!-- String --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Document_Object_Field --></label>
+        <name>Document_Object_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field_APIName --></label>
+        <name>Field_APIName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filter Field --></label>
+        <name>Filter_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- MigrationID --></label>
+        <name>MigrationID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object_ApiName --></label>
+        <name>Object_ApiName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Query --></label>
+        <name>Query__c</name>
+    </fields>
+    <fields>
+        <label><!-- ReferenceAttribute --></label>
+        <name>ReferenceAttribute__c</name>
+    </fields>
+    <layouts>
+        <layout>Forms Query Configuration Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

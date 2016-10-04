@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Assign_Owner</name>
+        <label>Assign Owner</label>
+        <locationX>297</locationX>
+        <locationY>975</locationY>
+        <assignmentItems>
+            <assignToReference>sCaseRecord.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Status_Available</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Signature</name>
+        <label>Assign Signature</label>
+        <locationX>1507</locationX>
+        <locationY>180</locationY>
+        <assignmentItems>
+            <assignToReference>Signaturerequired</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sCaseRecord.Signature_Required_Checkbox__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Signature_required_decision</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignCaseRule</name>
+        <label>AssignCaseRule</label>
+        <locationX>457</locationX>
+        <locationY>908</locationY>
+        <assignmentItems>
+            <assignToReference>sCaseRecord.CaseAssignmentRule__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>csCaseDefault.Owner__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sCaseRecord.RunRules__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Status_Available</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>New_Sub_Status_assignment</name>
+        <label>New Sub Status assignment</label>
+        <locationX>300</locationX>
+        <locationY>1297</locationY>
+        <assignmentItems>
+            <assignToReference>sCaseRecord.Sub_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>csCaseDefault.New_Sub_Status__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Status_Assignment</name>
+        <label>Status Assignment</label>
+        <locationX>293</locationX>
+        <locationY>1109</locationY>
+        <assignmentItems>
+            <assignToReference>sCaseRecord.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>csCaseDefault.New_Status__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Sub_Status_Available</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Criteria_Value_Satisfied</name>
+        <label>Criteria Value Satisfied</label>
+        <locationX>596</locationX>
+        <locationY>40</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Denial_Reason</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Denial Reason</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Denial_Reason_Case</targetReference>
+            </connector>
+            <label>Denial Reason</label>
+        </rules>
+        <rules>
+            <name>Dispute_Reason</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Dispute Reason</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Dispute_Reason_Match</targetReference>
+            </connector>
+            <label>Dispute Reason</label>
+        </rules>
+        <rules>
+            <name>No_Additional_Criteria</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>No Additional Criteria</label>
+        </rules>
+        <rules>
+            <name>Resulting_Decision</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Resulting Decision</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Resulting_Decision_Case</targetReference>
+            </connector>
+            <label>Resulting Decision</label>
+        </rules>
+        <rules>
+            <name>Name_Change_Update_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Name Change/Update Type</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Name_Change_Update_Type_Case</targetReference>
+            </connector>
+            <label>Name Change/Update Type</label>
+        </rules>
+        <rules>
+            <name>Number_of_LME</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Number of LME&apos;s</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Number_of_LME_decision</targetReference>
+            </connector>
+            <label>Number of LME</label>
+        </rules>
+        <rules>
+            <name>Signature_Required</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Signature required?</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Signature</targetReference>
+            </connector>
+            <label>Signature Required</label>
+        </rules>
+        <rules>
+            <name>Customer_Proceeding</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Proceeding With Payoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Customer_Proceeding_Case</targetReference>
+            </connector>
+            <label>Customer Proceeding</label>
+        </rules>
+        <rules>
+            <name>PIF_Group</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PIF Group</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PIF_Case</targetReference>
+            </connector>
+            <label>PIF Group</label>
+        </rules>
+        <rules>
+            <name>Recall_Reason</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Additional_Criteria_Field__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Retrieve Title Reason</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Recall_Case</targetReference>
+            </connector>
+            <label>Recall Reason</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Customer_Proceeding_Case</name>
+        <label>Customer Proceeding Case</label>
+        <locationX>270</locationX>
+        <locationY>264</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Match_Found_Customer_Proceeding</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Customer_Proceeding_With_Payoff__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Match Found Customer Proceeding</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Denial_Reason_Case</name>
+        <label>Denial Reason Case</label>
+        <locationX>23</locationX>
+        <locationY>286</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Match_Found_Denial_Reason</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Denial_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Match Found Denial Reason</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Dispute_Reason_Match</name>
+        <label>Dispute Reason Match</label>
+        <locationX>802</locationX>
+        <locationY>256</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Match_Found_Dispute_Reason</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Dispute_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Match Found Dispute Reason</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Name_Change_Update_Type_Case</name>
+        <label>Name Change/Update Type Case</label>
+        <locationX>470</locationX>
+        <locationY>221</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Match_Found_Name_Change_Update_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Name_Change_Update_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Match Found Name Change/Update Type</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Number_of_LME_decision</name>
+        <label>Number of LME</label>
+        <locationX>1287</locationX>
+        <locationY>262</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Number_of_LME_found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Number_of_LME_s__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Number of LME found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Owner_Id_available</name>
+        <label>Owner Id available</label>
+        <locationX>603</locationX>
+        <locationY>695</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Owner_Id_available_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OwnerId</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>TitleCase</targetReference>
+            </connector>
+            <label>Owner Id available</label>
+        </rules>
+        <rules>
+            <name>Owner_Id_not_available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.Owner__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Status_Available</targetReference>
+            </connector>
+            <label>Owner Id not available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>PIF_Case</name>
+        <label>PIF Case</label>
+        <locationX>110</locationX>
+        <locationY>150</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Found_PIF_Group</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.PIF_Group__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Found PIF Group</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Recall_Case</name>
+        <label>Recall Case</label>
+        <locationX>202</locationX>
+        <locationY>22</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Found_Recall_Reason</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Recall_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Found Recall Reason</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Resulting_Decision_Case</name>
+        <label>Resulting Decision</label>
+        <locationX>1043</locationX>
+        <locationY>262</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Match_Found_Resulting_Decision</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Resulting_Decision__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Resulting Decision</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Signature_required_decision</name>
+        <label>Signature required decision</label>
+        <locationX>1507</locationX>
+        <locationY>370</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Signature_required_found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Signaturerequired</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>csCaseDefault.Value__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QueueName</targetReference>
+            </connector>
+            <label>Signature required found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_Available</name>
+        <label>Status Available</label>
+        <locationX>599</locationX>
+        <locationY>1038</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Status_Available_Matched</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.New_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Status_Assignment</targetReference>
+            </connector>
+            <label>Status Available Matched</label>
+        </rules>
+        <rules>
+            <name>status_available_not_matched</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.New_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Sub_Status_Available</targetReference>
+            </connector>
+            <label>status available not matched</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Sub_Status_Available</name>
+        <label>Sub Status Available</label>
+        <locationX>607</locationX>
+        <locationY>1158</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>New_Sub_Status_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.New_Sub_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>New_Sub_Status_assignment</targetReference>
+            </connector>
+            <label>New Sub Status Available</label>
+        </rules>
+        <rules>
+            <name>New_Sub_Status_not_available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>csCaseDefault.New_Sub_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Record</targetReference>
+            </connector>
+            <label>New Sub Status not available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>TitleCase</name>
+        <label>TitleCase</label>
+        <locationX>310</locationX>
+        <locationY>749</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Owner</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YesTitleCase</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sCaseRecord.Category__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Title</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignCaseRule</targetReference>
+            </connector>
+            <label>YesTitleCase</label>
+        </rules>
+    </decisions>
+    <interviewLabel>UC Case Status SubFlow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>UC Case Status SubFlow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>QueueName</name>
+        <label>QueueName</label>
+        <locationX>600</locationX>
+        <locationY>508</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Owner_Id_available</targetReference>
+        </connector>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>csCaseDefault.Owner__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <object>Group</object>
+        <outputAssignments>
+            <assignToReference>OwnerId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case_Record</name>
+        <label>Update Case Record</label>
+        <locationX>612</locationX>
+        <locationY>1383</locationY>
+        <inputReference>sCaseRecord</inputReference>
+    </recordUpdates>
+    <startElementReference>Criteria_Value_Satisfied</startElementReference>
+    <textTemplates>
+        <name>TestCase</name>
+        <text>After all Lookups FINAL
+Case Number: {!sCaseRecord.CaseNumber}
+Run Rules:{!sCaseRecord.RunRules__c}
+Case Assignment Rule: {!sCaseRecord.CaseAssignmentRule__c}
+Owner: {!sCaseRecord.OwnerId}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>TestChatter3x</name>
+        <text>After all updates FINAL
+ase Number: {!sCaseRecord.CaseNumber}
+Run Rules:{!sCaseRecord.RunRules__c}
+Case Assignment Rule: {!sCaseRecord.CaseAssignmentRule__c}
+Owner: {!sCaseRecord.OwnerId}</text>
+    </textTemplates>
+    <variables>
+        <name>csCaseDefault</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>UC_Case_Defaults__c</objectType>
+    </variables>
+    <variables>
+        <name>OwnerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>sCaseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>Signaturerequired</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SubStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>test</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>CaseFeed</objectType>
+    </variables>
+</Flow>

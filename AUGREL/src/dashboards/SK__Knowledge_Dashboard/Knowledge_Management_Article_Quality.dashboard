@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#66FFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <dashboardType>SpecifiedUser</dashboardType>
+    <description>Besides user rating, Salesforce determines article Score with a &quot;half-life&quot; calculation. To prevent an artificially high or low rating to be maintained in perpetuum, every 15 days the average rating of an unviewed article is adjusted.</description>
+    <isGridLayout>false</isGridLayout>
+    <leftSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <header>Articles With the Most Versions</header>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>20</maxValuesDisplayed>
+            <report>SK__APXSK_Knowledge_Reports/Articles_with_the_Most_Rewrites</report>
+            <showPicturesOnTables>true</showPicturesOnTables>
+            <sortBy>RowValueDescending</sortBy>
+            <title>(Last 30 Days by Last Mod Date)</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+            <chartAxisRange>Manual</chartAxisRange>
+            <chartAxisRangeMax>5.0</chartAxisRangeMax>
+            <chartAxisRangeMin>1.0</chartAxisRangeMin>
+            <chartSummary>
+                <aggregate>Average</aggregate>
+                <axisBinding>y</axisBinding>
+                <column>KnowledgeArticle.VoteStats$NormalizedScore</column>
+            </chartSummary>
+            <componentType>Bar</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>&apos;Average Score&apos; excludes articles with zero votes. *Excludes &quot;feedback test&quot; and &quot;feedback instruction&quot; articles.</footer>
+            <groupingColumn>KnowledgeArticle$ArticleType</groupingColumn>
+            <header>Average Article Rating by Article Type</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>SK__APXSK_Knowledge_Reports/Article_Author_Type_Score2</report>
+            <showPercentage>false</showPercentage>
+            <showPicturesOnCharts>false</showPicturesOnCharts>
+            <showValues>true</showValues>
+            <sortBy>RowValueDescending</sortBy>
+            <title>(Last 90 Days by Last Mod Date)</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Bar</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>*Excludes the current week. A &apos;#Feedback Case&apos; occurs when a viewer enters a comment on an Article&apos;s Feed with the phrase &apos;#Feedback&apos;. *Excludes &quot;feedback test&quot; and &quot;feedback instruction&quot; articles</footer>
+            <header>#Feedback Cases by Week</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>SK__APXSK_Knowledge_Reports/Created_Feedback_Cases_by_Date</report>
+            <showPercentage>false</showPercentage>
+            <showPicturesOnCharts>false</showPicturesOnCharts>
+            <showValues>true</showValues>
+            <sortBy>RowLabelDescending</sortBy>
+            <title>(by Case Last Mod Date)</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </leftSection>
+    <middleSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <header>Highest-Rated Articles</header>
+            <indicatorBreakpoint1>2.5</indicatorBreakpoint1>
+            <indicatorBreakpoint2>3.5</indicatorBreakpoint2>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>20</maxValuesDisplayed>
+            <report>SK__APXSK_Knowledge_Reports/SK__APXSKArticleRateInternalApp</report>
+            <showPicturesOnTables>true</showPicturesOnTables>
+            <sortBy>RowValueDescending</sortBy>
+            <title>(Last 90 Days by Last Mod Date)</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+            <chartAxisRange>Manual</chartAxisRange>
+            <chartAxisRangeMax>5.0</chartAxisRangeMax>
+            <chartAxisRangeMin>1.0</chartAxisRangeMin>
+            <chartSummary>
+                <aggregate>Average</aggregate>
+                <axisBinding>y</axisBinding>
+                <column>KnowledgeArticle.VoteStats$NormalizedScore</column>
+            </chartSummary>
+            <componentType>ColumnGrouped</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>&apos;Average Score&apos; excludes articles with zero votes. *Excludes &quot;feedback test&quot; and &quot;feedback instruction&quot; articles.</footer>
+            <groupingColumn>KnowledgeArticle$LastPublishedDate</groupingColumn>
+            <groupingColumn>KnowledgeArticle$ArticleType</groupingColumn>
+            <header>Average Article Ratings by Month and Type</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>SK__APXSK_Knowledge_Reports/Article_Scores_by_Month_and_Type</report>
+            <showPercentage>false</showPercentage>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>(Current &amp; Prev FQ by Last Mod Date)</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Line</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>*Excludes the current month. A &apos;#Feedback Case&apos; occurs when a viewer enters a comment on an Article&apos;s Feed with the phrase &apos;#Feedback&apos;. *Excludes &quot;feedback test&quot; and &quot;feedback instruction&quot; articles</footer>
+            <header>#Feedback Cases by Month</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>SK__APXSK_Knowledge_Reports/Feedback_Cases_by_Month</report>
+            <showPercentage>false</showPercentage>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>(by Case Last Mod Date)</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </middleSection>
+    <rightSection>
+        <columnSize>Wide</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Table</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <header>Lowest-Rated Articles</header>
+            <indicatorBreakpoint1>2.5</indicatorBreakpoint1>
+            <indicatorBreakpoint2>3.5</indicatorBreakpoint2>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <maxValuesDisplayed>20</maxValuesDisplayed>
+            <report>SK__APXSK_Knowledge_Reports/SK__APXSKArticleRateInternalApp</report>
+            <showPicturesOnTables>true</showPicturesOnTables>
+            <sortBy>RowValueAscending</sortBy>
+            <title>(Last 90 Days by Last Mod Date)</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+            <chartAxisRange>Manual</chartAxisRange>
+            <chartAxisRangeMax>5.0</chartAxisRangeMax>
+            <chartAxisRangeMin>1.0</chartAxisRangeMin>
+            <chartSummary>
+                <aggregate>Average</aggregate>
+                <axisBinding>y</axisBinding>
+                <column>KnowledgeArticle.VoteStats$NormalizedScore</column>
+            </chartSummary>
+            <componentType>Bar</componentType>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>&apos;Average Score&apos; excludes articles with zero votes. *Excludes &quot;feedback test&quot; and &quot;feedback instruction&quot; articles.</footer>
+            <groupingColumn>KnowledgeArticle$LastModifiedDate</groupingColumn>
+            <header>Average Article Ratings by FQ</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>SK__APXSK_Knowledge_Reports/Article_Scores_by_FQ</report>
+            <showPercentage>false</showPercentage>
+            <showPicturesOnCharts>false</showPicturesOnCharts>
+            <showValues>true</showValues>
+            <sortBy>RowLabelDescending</sortBy>
+            <title>(Current &amp; Prev FY by Last Mod Date)</title>
+            <useReportChart>false</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Bar</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>A &apos;#Feedback Case&apos; occurs when a viewer enters a comment on an Article&apos;s Feed with the phrase &apos;#Feedback&apos;. *Excludes &quot;feedback test&quot; and &quot;feedback instruction&quot; articles</footer>
+            <header>#Feedback Cases by FQ</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>SK__APXSK_Knowledge_Reports/Feedback_Cases_by_FQ</report>
+            <showPercentage>false</showPercentage>
+            <showPicturesOnCharts>false</showPicturesOnCharts>
+            <showValues>true</showValues>
+            <sortBy>RowLabelDescending</sortBy>
+            <title>(by Case Open Date)</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </rightSection>
+    <runningUser>holtkamd@tfs.toyota.com</runningUser>
+    <textColor>#000000</textColor>
+    <title>Knowledge Management - Article Quality</title>
+    <titleColor>#666666</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>

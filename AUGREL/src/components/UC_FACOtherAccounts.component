@@ -1,0 +1,114 @@
+<apex:component controller="UC_facOtherAccountsController">
+
+    <apex:attribute name="parameters" type="string"   required="true" assignTo="{!parms}" description="Semi-colon separated parms"/>
+    <apex:attribute name="borrower" type="string"   required="true"  description="Which borrow component is loaded for"/>
+  
+          <span style="display:block" id="{!borrower}Link">
+              <apex:outputText rendered="{!hasOtherAccounts}">
+                  <a href="#" onClick="open{!borrower}Popup()">
+                       Other Accounts:&nbsp;{!openOtherAccountCount} / {!closedOtherAccountCount}
+                  </a>
+              </apex:outputText> 
+              <apex:outputText rendered="{!!hasOtherAccounts}">
+                  Other Accounts:&nbsp;{!openOtherAccountCount} / {!closedOtherAccountCount}
+              </apex:outputText> 
+          </span>
+
+
+         <div id="{!borrower}Popup">
+              <apex:outputPanel id="popupRelatedFinancialAccounts" layout="block" >
+
+    			<table style="border: 1px solid #d3d1d1; width:100%;border-collapse:collapse;  ">
+   					
+    				 <tr style="border-bottom:1px solid #d3d1d1; background-color: #F4F6F9">
+                                <td class = "title">Financial Acct</td>
+                                <td class = "title">Status</td>
+                                <td class = "title">Vehicle</td>
+                      </tr>
+                           <apex:repeat value="{!listOfAccounts}"  var="acct">
+                            <tr style="border-bottom:1px solid #d3d1d1;" > 
+                                <td><a href="#" onClick="openFAInPrimaryTab('{!acct.Id}', '{!acct.Financial_Account_Number__c}')" onfocus="blur()">{!acct.Financial_Account_Number__c}
+                                	</a></td>
+                                <td>{!acct.Finance_Account_Status__c}</td>
+                                <td>
+                                    {!acct.Collateral__r.Model_Year__c + ' ' + acct.Collateral__r.Make__c + ' ' + acct.Collateral__r.Model_Name__c}
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                 
+                </table>
+                <!--  div float="right">
+               		 <apex:commandButton value="Close" action="{!closePopup}"  rerender="popup"/>
+                </div   -->
+            </apex:outputPanel>
+         </div>
+
+        <!--  apex:actionFunction name="openPopup" action="{!showTopPopup}" reRender="popup"/   -->
+ 
+<script>
+
+
+        function openFAInPrimaryTab(faId, faAccountNumber){
+            if(sforce.console.isInConsole()){
+                openPrimaryTabAfterValidations('/' + faId, faAccountNumber, true);
+            }else{
+                window.open('/' + faId);
+            }
+        }
+        
+        function openPrimaryTabAfterValidations(url, tabLabel, setFocus) {
+            sforce.console.openPrimaryTab(null, url, setFocus, tabLabel, null);
+        }
+                
+   	$("#{!borrower}Popup").dialog({
+				autoOpen: false,
+				modal: false,
+				width: "400px", 
+				height: 140,
+				resizeable: false,
+				draggable: false,
+				dialogClass: "dlg-no-title ui-dialog-shadow",
+				position: {my: "top left", at: "top right + 15", of:"#{!borrower}Link"},
+				buttons: [
+					{
+						text: "Close",
+						click: function() {
+							$(this).dialog("close");
+							}
+					}]
+		});  
+/*		
+    // need separate instances cuz same component repeated in page
+   	$("#CoborrowerPopup").dialog({
+				autoOpen: false,
+				modal: false,
+				width: "400px", 
+				height: 140,
+				resizeable: false,
+				draggable: false,
+				dialogClass: "dlg-no-title ui-dialog-shadow",
+				position: {my: "top left", at: "top right", of:"#CoborrowerLink"},
+				buttons: [
+					{
+						text: "Close",
+						click: function() {
+							$(this).dialog("close");
+							}
+					}]
+		});  
+	*/	
+
+    console.log('**** borrower:   {!borrower}');	
+    var thisBorrower = "{!borrower}";
+  	
+	function openPrimaryPopup() {
+		$("#PrimaryPopup").dialog('open');
+   }
+   
+	function openCoborrowerPopup() {
+		$("#CoborrowerPopup").dialog('open');
+   }
+		
+ 
+</script>
+</apex:component>

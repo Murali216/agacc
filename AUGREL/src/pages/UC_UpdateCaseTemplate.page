@@ -1,0 +1,144 @@
+<apex:page standardController="Case"
+			extensions="UC_UpdateCaseController"
+			standardStyleSheets="false"
+			sidebar="false"> 
+			 
+ 	<script type='text/javascript' src="/support/console/34.0/integration.js"/>
+    <script type='text/javascript' src='/canvas/sdk/js/publisher.js'/>
+    <apex:includeScript value="{!$Resource.jquery}"/>
+    <script type='text/javascript'>    
+	    var $ = jQuery.noConflict();
+			
+		function refreshFeed() {		
+				Sfdc.canvas.publisher.publish({name : 'publisher.refresh', payload : {feed:true}});
+			}
+		function openSubtab() {
+			//First find the ID of the primary tab to put the new subtab in
+			sforce.console.getEnclosingPrimaryTabId(openSubtab2);
+		}
+		
+		
+		var openSubtab2 = function openSubtab2(result) {
+			//Now that we have the primary tab ID, we can open a new subtab in it
+			 
+			var primaryTabId = result.id;
+			sforce.console.openSubtab(primaryTabId ,caseIdToNavigate, true,
+				caseNumber, null, null , caseNumber);
+		};
+		  
+		function refreshPrimaryTab() {
+		   // sforce.console.getEnclosingPrimaryTabId(refreshPrimaryTab2);   .... doesn't get rid of vf page
+		   window.top.location.href='/console?tsid={!thisCase.Financial_Account__c}'
+		}
+
+			
+		var caseIdToNavigate='';
+		var caseNumber='';
+		
+		function refreshThisSubTab() {
+			alert('subtab - looking for thisCase.Financial_Account__c: '+thisCase.Financial_Account__c);
+			sforce.console.getFocusedSubtabId(showTabId);
+		}
+
+		var showTabId = function showTabId(result) {
+			sforce.console.refreshSubtabById(result.id, true);
+		};	
+	</script>
+	
+
+	
+	<style>
+		.inputField {
+			width : 175px;
+		}
+		
+		td {
+			padding-bottom:2px;
+		}
+		
+		.labelCol {
+			text-align: right;
+			width: 20%;
+		}
+		.dataCol {
+		   padding-left:5px;
+		}
+		.dataBorder {
+			padding:2px; 
+			border-width:1px; 
+			border-style:solid; 
+			border-color:#a9a9a9;
+		}
+	    .button {
+	            -webkit-box-shadow: none;  					-webkit-user-select: none;
+	            background-color: rgb(255, 255, 255);   	background-image: none;
+	            border-bottom-color: rgb(136, 136, 136);    border-bottom-left-radius: 3px;
+	            border-bottom-right-radius: 3px;       		border-bottom-style: solid;
+	            border-bottom-width: 1px;        			border-image-outset: 0px;er
+	            border-image-repeat: stretch;      			border-image-slice: 100%;
+	            border-image-source: none;   				border-image-width: 1;
+	            border-left-color: rgb(136, 136, 136);       border-left-style: solid;
+	            border-left-width: 1px;      				border-right-color: rgb(136, 136, 136);
+	            border-right-style: solid;     				border-right-width: 1px;
+	            border-top-color: rgb(136, 136, 136);     	border-top-left-radius: 3px;
+	            border-top-right-radius: 3px;       		border-top-style: solid;
+	            border-top-width: 1px;        				box-shadow: none;
+	            box-sizing: border-box;            			color: rgb(35, 82, 124);
+	            cursor: pointer;       						display: inline-block;
+	            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	            font-size: 12px;     						font-weight: normal;
+	            height: 22px;      							line-height: 18px;
+	            margin-bottom: 0px;      					outline-color: rgb(35, 82, 124);
+	            outline-style: none;      					outline-width: 0px;
+	            padding-bottom: 1px;     					padding-left: 5px;
+	            padding-right: 5px;         				padding-top: 1px;
+	            text-align: center;       					text-decoration: none;
+	            touch-action: manipulation; 				vertical-align: middle;
+	            white-space: nowrap;   						width: 110px;
+	        }   
+	        .submitButton {
+	            background-color:#89af31;
+	            background-image: none;
+	            background-origin: padding-box;
+	            background-position: 100% 0%;
+	            background-size: auto;
+	            box-sizing: border-box;
+	            color: rgb(255, 255, 255);
+	            cursor: pointer;
+	            display: inline-block;
+	            font-family: Arial, Helvetica, sans-serif;
+	        }  
+			
+		
+	</style>
+	<apex:form >
+		<div>
+			<apex:outputPanel id="page" rendered="{!pageIsVisible}">
+	    		<apex:outputPanel id="messages" >
+					<apex:pagemessages />
+				</apex:outputPanel>
+				<apex:outputPanel id="titleUpdate" rendered="{!showTitleUpdate}">
+					<apex:insert name="PIFTitleFields" />					 
+				</apex:outputPanel>
+				<apex:outputPanel id="controlButtons" rendered="{!showControlButtons}">
+					<table style="width:100%">
+			  	  		<tr>
+					  		<td/>
+					  		<td style='float:right'>
+					  			<br/>
+					  		 	<input value="Cancel" class="button" title="Cancel Case" type="button" onclick="alert('starting cancel');cancelCase();refreshThisSubTab();"/>
+					  		</td>
+					  		<td>
+					  			<br/>		
+					  		 	<input value="Update Case" class="button submitButton" title="Update Case" type="button" onclick="updateCaseAndNavigate();" />
+					  		</td>
+					  		<td/>
+					  	</tr>	  
+					</table>
+				</apex:outputPanel>
+		    	<apex:actionFunction name="cancelCase" action="{!cancelCase}" rerender="page" oncomplete="refreshFeed();"/> 			
+		    	<apex:actionFunction name="updateCaseAndNavigate" action="{!updateCase}"  rerender="page" oncomplete="if({!saveSuccessful}){refreshPrimaryTab();};" />
+			</apex:outputPanel>
+		</div>
+ 	</apex:form>
+</apex:page>

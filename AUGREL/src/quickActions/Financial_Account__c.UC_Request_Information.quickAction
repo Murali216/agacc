@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Displays VF Page to enter request information details</description>
+    <height>450</height>
+    <icon>PublisherRequestInformation</icon>
+    <label>Request Info</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>UC_NewCaseRequestInformation</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

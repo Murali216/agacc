@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Manual Cure State Threshold</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Manual Cure State Threshold</value>
+    </caseValues>
+    <fields>
+        <label><!-- Lease - Cure Required State --></label>
+        <name>Lease_Cure_Required_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease-FOPP Minimum Days Delinquent --></label>
+        <name>Lease_FOPP_Minimum_Days_Delinquent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Form # --></label>
+        <name>Lease_Form__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail - Cure Required State --></label>
+        <name>Retail_Cure_Required_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail-FOPP Minimum Days Delinquent --></label>
+        <name>Retail_FOPP_Minimum_Days_Delinquent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Form # --></label>
+        <name>Retail_Form__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

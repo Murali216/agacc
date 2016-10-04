@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Title</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Titles</value>
+    </caseValues>
+    <fields>
+        <label><!-- APO Received --></label>
+        <name>APO_Received__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ClosedCaseStatus --></label>
+        <name>ClosedCaseStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collateral --></label>
+        <name>Collateral__c</name>
+        <relationshipLabel><!-- Titles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Communications --></label>
+        <name>Customer_Communications__c</name>
+        <picklistValues>
+            <masterLabel>Sent Bill of Sale</masterLabel>
+            <translation><!-- Sent Bill of Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent CLAH Letter</masterLabel>
+            <translation><!-- Sent CLAH Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent Contract</masterLabel>
+            <translation><!-- Sent Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent GAP Letter</masterLabel>
+            <translation><!-- Sent GAP Letter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Estimated Mail Date --></label>
+        <name>Estimated_Mail_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- EvaluateFollowUp --></label>
+        <name>EvaluateFollowUp__c</name>
+    </fields>
+    <fields>
+        <label><!-- FA Number --></label>
+        <name>FA_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Financial Account --></label>
+        <name>Financial_Account__c</name>
+        <relationshipLabel><!-- Titles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Hold Reason --></label>
+        <name>Hold_Reason__c</name>
+        <picklistValues>
+            <masterLabel>BK No Closing Notes</masterLabel>
+            <translation><!-- BK No Closing Notes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BSG Research</masterLabel>
+            <translation><!-- BSG Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Band2 Review</masterLabel>
+            <translation><!-- Band2 Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Off</masterLabel>
+            <translation><!-- Charge Off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flat/Rebook/SCRA</masterLabel>
+            <translation><!-- Flat/Rebook/SCRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large Overpayment</masterLabel>
+            <translation><!-- Large Overpayment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Misapplied Pmt</masterLabel>
+            <translation><!-- Misapplied Pmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NSF</masterLabel>
+            <translation><!-- NSF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Acct-Title Not Received</masterLabel>
+            <translation><!-- New Acct-Title Not Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Authorization</masterLabel>
+            <translation><!-- No Authorization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Contract/DMS Folder</masterLabel>
+            <translation><!-- No Contract/DMS Folder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No ODO/Missing Docs</masterLabel>
+            <translation><!-- No ODO/Missing Docs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Within Maturity</masterLabel>
+            <translation><!-- Not Within Maturity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned Mail</masterLabel>
+            <translation><!-- Returned Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Loss-Addr Needed</masterLabel>
+            <translation><!-- Total Loss-Addr Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transfer in Process</masterLabel>
+            <translation><!-- Transfer in Process --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Last Modified by Lan Id --></label>
+        <name>Last_Modified_by_Lan_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Legacy ID --></label>
+        <name>Legacy_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mail Acct # --></label>
+        <name>Mail_Acct_Num__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overnight Mail --></label>
+        <name>Overnight_Mail__c</name>
+        <picklistValues>
+            <masterLabel>Fed-Ex</masterLabel>
+            <translation><!-- Fed-Ex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS</masterLabel>
+            <translation><!-- UPS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Payoff Date --></label>
+        <name>Payoff_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payoff Method --></label>
+        <name>Payoff__c</name>
+        <picklistValues>
+            <masterLabel>Certified</masterLabel>
+            <translation><!-- Certified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Portal</masterLabel>
+            <translation><!-- Dealer Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Certified</masterLabel>
+            <translation><!-- Non-Certified --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Perfected --></label>
+        <name>Perfected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Releasing User Name --></label>
+        <name>Releasing_User_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Releasing User --></label>
+        <name>Releasing_User__c</name>
+        <relationshipLabel><!-- Titles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Send To --></label>
+        <name>Send_To__c</name>
+        <picklistValues>
+            <masterLabel>3rd Party</masterLabel>
+            <translation><!-- 3rd Party --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Co-borrower</masterLabel>
+            <translation><!-- Co-borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Originating Dealer</masterLabel>
+            <translation><!-- Originating Dealer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Title Notes --></label>
+        <name>Title_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title Send To Address --></label>
+        <name>Title_Send_To_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title State --></label>
+        <name>Title_State__c</name>
+        <picklistValues>
+            <masterLabel>AA</masterLabel>
+            <translation><!-- AA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AE</masterLabel>
+            <translation><!-- AE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AK</masterLabel>
+            <translation><!-- AK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AL</masterLabel>
+            <translation><!-- AL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP</masterLabel>
+            <translation><!-- AP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AR</masterLabel>
+            <translation><!-- AR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation><!-- AZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA</masterLabel>
+            <translation><!-- CA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CO</masterLabel>
+            <translation><!-- CO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT</masterLabel>
+            <translation><!-- CT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DC</masterLabel>
+            <translation><!-- DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DE</masterLabel>
+            <translation><!-- DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DI</masterLabel>
+            <translation><!-- DI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FL</masterLabel>
+            <translation><!-- FL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GA</masterLabel>
+            <translation><!-- GA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HI</masterLabel>
+            <translation><!-- HI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IA</masterLabel>
+            <translation><!-- IA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID</masterLabel>
+            <translation><!-- ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IL</masterLabel>
+            <translation><!-- IL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KS</masterLabel>
+            <translation><!-- KS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KY</masterLabel>
+            <translation><!-- KY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA</masterLabel>
+            <translation><!-- LA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MA</masterLabel>
+            <translation><!-- MA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD</masterLabel>
+            <translation><!-- MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ME</masterLabel>
+            <translation><!-- ME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MI</masterLabel>
+            <translation><!-- MI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MN</masterLabel>
+            <translation><!-- MN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation><!-- MO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MT</masterLabel>
+            <translation><!-- MT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC</masterLabel>
+            <translation><!-- NC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ND</masterLabel>
+            <translation><!-- ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NE</masterLabel>
+            <translation><!-- NE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NH</masterLabel>
+            <translation><!-- NH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NJ</masterLabel>
+            <translation><!-- NJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NM</masterLabel>
+            <translation><!-- NM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NV</masterLabel>
+            <translation><!-- NV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NY</masterLabel>
+            <translation><!-- NY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OH</masterLabel>
+            <translation><!-- OH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OK</masterLabel>
+            <translation><!-- OK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OR</masterLabel>
+            <translation><!-- OR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PA</masterLabel>
+            <translation><!-- PA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PR</masterLabel>
+            <translation><!-- PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RI</masterLabel>
+            <translation><!-- RI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation><!-- SC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation><!-- SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TN</masterLabel>
+            <translation><!-- TN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TX</masterLabel>
+            <translation><!-- TX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UT</masterLabel>
+            <translation><!-- UT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation><!-- VA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VT</masterLabel>
+            <translation><!-- VT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WA</masterLabel>
+            <translation><!-- WA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WI</masterLabel>
+            <translation><!-- WI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WV</masterLabel>
+            <translation><!-- WV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WY</masterLabel>
+            <translation><!-- WY --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Title Status --></label>
+        <name>Title_Status__c</name>
+        <picklistValues>
+            <masterLabel>Held</masterLabel>
+            <translation><!-- Held --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In House</masterLabel>
+            <translation><!-- In House --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost</masterLabel>
+            <translation><!-- Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending-Not Yet Received</masterLabel>
+            <translation><!-- Pending-Not Yet Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pulled</masterLabel>
+            <translation><!-- Pulled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Released</masterLabel>
+            <translation><!-- Released --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reserved</masterLabel>
+            <translation><!-- Reserved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transferred</masterLabel>
+            <translation><!-- Transferred --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Title Type --></label>
+        <name>Title_Type__c</name>
+        <picklistValues>
+            <masterLabel>ELT</masterLabel>
+            <translation><!-- ELT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lien Release</masterLabel>
+            <translation><!-- Lien Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paper</masterLabel>
+            <translation><!-- Paper --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tracking Number --></label>
+        <name>Tracking_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- VIN --></label>
+        <name>VIN__c</name>
+    </fields>
+    <layouts>
+        <layout>Title Feed Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Read Only Fields --></label>
+            <section>Read Only Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Title Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
